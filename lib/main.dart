@@ -60,13 +60,12 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
   }
 
   Future<void> _getClouds() async {
-    final response = await http
-        .get(Uri.parse('https://samsungportugal.com/fotografia-943km-iframe/'));
-    if (response.statusCode == 200) {
+    final response = await http.get(Uri.parse('https://i.imgur.com/QSrGGvM.png'));
+    if (response.statusCode == 200 && mounted) {
       setState(() {
-        _clouds = jsonDecode(response.body);
+        _clouds = response.bodyBytes;
       });
-    } else {
+    } else if (mounted) {
       throw Exception('Failed to load clouds');
     }
   }
@@ -79,11 +78,11 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
       ),
       body: _clouds != null
           ? Center(
-              child: Text(_clouds['name']),
-            )
+        child: Image.memory(_clouds),
+      )
           : Center(
-              child: CircularProgressIndicator(),
-            ),
+        child: CircularProgressIndicator(),
+      ),
     );
   }
 }
