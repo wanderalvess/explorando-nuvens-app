@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('Identificando Nuvens'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.menu),
@@ -27,32 +27,17 @@ class HomePage extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            ElevatedButton(
-              child: Text('Nuvens Cirrus'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CloudTypesPage('cirrus')),
-                );
-              },
+            CloudCategoryButton(
+              categoryName: 'Nuvens Cirrus',
+              categoryImage: 'https://i.postimg.cc/C54KNSmC/MG-3831.jpg',
             ),
-            ElevatedButton(
-              child: Text('Nuvens Cumulus'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CloudTypesPage('cumulus')),
-                );
-              },
+            CloudCategoryButton(
+              categoryName: 'Nuvens Cumulus',
+              categoryImage: 'https://i.postimg.cc/VNP3YnY6/MG-3829.jpg',
             ),
-            ElevatedButton(
-              child: Text('Nuvens Stratus'),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => CloudTypesPage('stratus')),
-                );
-              },
+            CloudCategoryButton(
+              categoryName: 'Nuvens Stratus',
+              categoryImage: 'https://i.postimg.cc/4yvrH3BG/MG-4210.jpg',
             ),
           ],
         ),
@@ -61,10 +46,45 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class CloudTypesPage extends StatefulWidget {
-  final String category;
+class CloudCategoryButton extends StatelessWidget {
+  final String categoryName;
+  final String categoryImage;
 
-  CloudTypesPage(this.category);
+  CloudCategoryButton({required this.categoryName, required this.categoryImage});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CloudTypesPage(categoryName: categoryName),
+          ),
+        );
+      },
+      child: Column(
+        children: [
+          Container(
+            width: 100,
+            height: 100,
+            child: Image.network(
+              categoryImage,
+              fit: BoxFit.cover,
+            ),
+          ),
+          Text(categoryName),
+        ],
+      ),
+    );
+  }
+}
+
+
+class CloudTypesPage extends StatefulWidget {
+  final String categoryName;
+
+  CloudTypesPage({required this.categoryName});
 
   @override
   _CloudTypesPageState createState() => _CloudTypesPageState();
@@ -78,16 +98,16 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
   void initState() {
     super.initState();
     // Simule a busca de URLs de imagens com base na categoria selecionada
-    fetchImageUrls(widget.category);
+    fetchImageUrls(widget.categoryName);
   }
 
-  Future<void> fetchImageUrls(String category) async {
-    final response = await http.get(Uri.parse('http://localhost:8080/images?category=$category'));
+  Future<void> fetchImageUrls(String categoryName) async {
+    final response = await http.get(Uri.parse('http://192.168.0.116:8080/images?category=$categoryName'));
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
       List<String> urls = data.map((item) {
-        return item['imageUrl'] as String; // Converte explicitamente para String
+        return item['imageUrl'] as String;
       }).toList();
       setState(() {
         imageUrls = urls;
@@ -99,9 +119,12 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tipos de nuvens - ${widget.category}'),
+        title: Text('Tipos de nuvens - ${widget.categoryName}'),
       ),
-      body: ListView.builder(
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2, // Defina o número de colunas desejado
+        ),
         itemCount: imageUrls.length,
         itemBuilder: (context, index) {
           return GestureDetector(
@@ -109,13 +132,33 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ImageDetailPage(imageUrl: imageUrls[index]),
+                  builder: (context) =>
+                      ImageDetailPage(imageUrl: imageUrls[index]),
                 ),
               );
             },
-            child: Container(
-              height: 200, // Altura fixa para não estourar a tela
-              child: Image.network(imageUrls[index]),
+            child: Card(
+              child: Column(
+                children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    child: Image.network(
+                      imageUrls[index],
+                      fit: BoxFit
+                          .contain, // Controla o dimensionamento da imagem
+                    ),
+                  ),
+                  const ListTile(
+                    title: Text('Título da imagem'),
+                    // Substitua pelo título real
+                    subtitle: Text(
+                      'Descrição da imagem',
+                    ),
+                    // Substitua pela descrição real
+                  ),
+                ],
+              ),
             ),
           );
         },
