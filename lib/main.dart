@@ -1,3 +1,4 @@
+import 'package:clouds_identification_tab/model/my_image.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -92,7 +93,7 @@ class CloudTypesPage extends StatefulWidget {
 
 class _CloudTypesPageState extends State<CloudTypesPage> {
   // Lista de URLs de imagens com base na categoria selecionada
-  List<String> imageUrls = [];
+  List<MyImage> imageUrls = [];
 
   @override
   void initState() {
@@ -102,12 +103,13 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
   }
 
   Future<void> fetchImageUrls(String categoryName) async {
-    final response = await http.get(Uri.parse('http://192.168.0.116:8080/images?category=$categoryName'));
+    final response = await http.get(Uri.parse('http://192.168.0.116:8080/image/images?category=$categoryName'));
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
-      List<String> urls = data.map((item) {
-        return item['imageUrl'] as String;
+      List<MyImage> urls = data.map((item) {
+
+        return MyImage(item['imageUrl']!, item['description']!, item['title']);
       }).toList();
       setState(() {
         imageUrls = urls;
@@ -133,7 +135,7 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) =>
-                      ImageDetailPage(imageUrl: imageUrls[index]),
+                      ImageDetailPage(imageUrl: imageUrls[index].getUrl),
                 ),
               );
             },
@@ -144,16 +146,18 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
                     width: 100,
                     height: 100,
                     child: Image.network(
-                      imageUrls[index],
+                      imageUrls[index].getUrl,
                       fit: BoxFit
                           .contain, // Controla o dimensionamento da imagem
                     ),
                   ),
-                  const ListTile(
-                    title: Text('Título da imagem'),
+                  ListTile(
+                    title: Text(
+                      imageUrls[index].getTitle,
+                    ),
                     // Substitua pelo título real
                     subtitle: Text(
-                      'Descrição da imagem',
+                      imageUrls[index].getDescription,
                     ),
                     // Substitua pela descrição real
                   ),
