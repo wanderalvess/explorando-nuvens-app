@@ -24,21 +24,35 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Padding(
+        padding: EdgeInsets.all(22.0), // Adicione margens iguais à esquerda e à direita
+        child: Wrap(
+          spacing: 22.0, // Espaçamento horizontal entre os botões
+          runSpacing: 10.0, // Espaçamento vertical entre as linhas
           children: <Widget>[
             CloudCategoryButton(
-              categoryName: 'Nuvens Cirrus',
-              categoryImage: 'https://i.postimg.cc/C54KNSmC/MG-3831.jpg',
+              categoryName: 'Cirrus',
+              categoryImage: 'https://i.postimg.cc/5tLdF8V8/cirrus1.jpg',
             ),
             CloudCategoryButton(
-              categoryName: 'Nuvens Cumulus',
-              categoryImage: 'https://i.postimg.cc/VNP3YnY6/MG-3829.jpg',
+              categoryName: 'Cumulus',
+              categoryImage: 'https://i.postimg.cc/3R1qgBb0/cumulus.jpg',
             ),
             CloudCategoryButton(
-              categoryName: 'Nuvens Stratus',
-              categoryImage: 'https://i.postimg.cc/4yvrH3BG/MG-4210.jpg',
+              categoryName: 'Stratus',
+              categoryImage: 'https://i.postimg.cc/y6rQskqK/stratus-opacus.jpg',
+            ),
+            CloudCategoryButton(
+              categoryName: 'Altocumulus',
+              categoryImage: 'https://i.postimg.cc/Wz9QPnGc/altocumulus.jpg',
+            ),
+            CloudCategoryButton(
+              categoryName: 'Cumulonimbus',
+              categoryImage: 'https://i.postimg.cc/Bbwwzv3q/cumulonimbus.jpg',
+            ),
+            CloudCategoryButton(
+              categoryName: 'Stratocumulus',
+              categoryImage: 'https://i.postimg.cc/KcHzk3CY/stratocumulus.jpg',
             ),
           ],
         ),
