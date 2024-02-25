@@ -51,7 +51,7 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
       ),
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Defina o número de colunas desejado
+          crossAxisCount: 2,
         ),
         itemCount: imageUrls.length,
         itemBuilder: (context, index) {
@@ -81,11 +81,9 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
                     title: Text(
                       imageUrls[index].getTitle,
                     ),
-                    // Substitua pelo título real
                     subtitle: Text(
                       imageUrls[index].getDescription,
                     ),
-                    // Substitua pela descrição real
                   ),
                 ],
               ),
