@@ -11,23 +11,38 @@ class WeatherForecastPage extends StatefulWidget {
 class _WeatherForecastState extends State<WeatherForecastPage> {
   TextEditingController _cityController = TextEditingController();
   String _city = '';
-  String _clima = '';
+  String _temp = '';
+  String _temp_min = '';
+  String _temp_max = '';
+  String _humidity = '';
+  String _pressure = '';
 
   Future<void> _getWeatherForecast(String city) async {
     final apikey = '90e3cc1e43979f2c222283e3a78f6126';
-    final apiUrl = 'http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apikey}&units=metric';
+    final apikeyHG = '14193a96';
+    final apiUrl = 'http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apikey&units=metric';
+    final apiUrlHG = 'https://api.hgbrasil.com/weather?key=$apikeyHG&city_name=$city';
     final response = await http.get(Uri.parse(apiUrl));
+
+
+
+
+   // if do openweather
 
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body);
       setState(() {
         _city = jsonData['name'];
-        _clima = jsonData['weather'][0]['description'];
+        _temp = jsonData['main']['temp'].toString();
+        _temp_max = jsonData['main']['temp_max'].toString();
+        _temp_min = jsonData['main']['temp_min'].toString();
+        _pressure = jsonData['main']['pressure'].toString();
+        _humidity = jsonData['main']['humidity'].toString();
       });
     } else {
       setState(() {
         _city = 'Erro ao obter a cidade';
-        _clima = 'Erro ao obter a temperatura';
+        _temp = 'Erro ao obter a temperatura';
       });
     }
   }
@@ -54,7 +69,7 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
             children: [
               TextField(
                 controller: _cityController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Digite o nome da cidade',
                 ),
               ),
@@ -66,14 +81,13 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
               ),
               SizedBox(height: 16.0),
               Text(
-                'Previsão do tempo para $_city: $_clima',
+                'Temperatura para $_city: é $_temp °C',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
               )
             ],
           ),
         )
-
     );
   }
 }
