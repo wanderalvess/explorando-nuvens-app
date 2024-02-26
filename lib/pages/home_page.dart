@@ -1,6 +1,7 @@
 import 'package:clouds_identification_tab/pages/exploring_clouds_page.dart';
 import 'package:clouds_identification_tab/pages/privacy_page.dart';
 import 'package:clouds_identification_tab/pages/terms_page.dart';
+import 'package:clouds_identification_tab/pages/weather_forecast_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -51,7 +52,7 @@ class HomePage extends StatelessWidget {
                 Navigator.pop(context); // Fecha o Drawer
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TermsPage()),
+                  MaterialPageRoute(builder: (context) => WeatherForecast()),
                 );
               },
             ),
