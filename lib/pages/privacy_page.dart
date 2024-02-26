@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class PrivacyScreen extends StatelessWidget {
   const PrivacyScreen({super.key});
 
@@ -15,11 +14,12 @@ class PrivacyScreen extends StatelessWidget {
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: Icon(Icons.arrow_back)),
       ),
-      body: Column(
+      body: const Column(
         children: [
           Padding(
             padding: EdgeInsets.all(16.0),
@@ -38,7 +38,7 @@ class PrivacyScreen extends StatelessWidget {
             child: SingleChildScrollView(
               physics: AlwaysScrollableScrollPhysics(),
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(10.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +54,7 @@ class PrivacyScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 4),
                     Padding(
-                      padding: const EdgeInsets.only(left: 16.0),
+                      padding: EdgeInsets.only(left: 16.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -94,7 +94,7 @@ class PrivacyScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 4),
                     Padding(
-                      padding: const EdgeInsets.only(left: 16.0),
+                      padding: EdgeInsets.only(left: 16.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

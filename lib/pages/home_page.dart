@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
                 Navigator.pop(context); // Fecha o Drawer
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => WeatherForecast()),
+                  MaterialPageRoute(builder: (context) => WeatherForecastPage()),
                 );
               },
             ),
