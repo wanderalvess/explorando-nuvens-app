@@ -81,7 +81,7 @@ class HomePage extends StatelessWidget {
       body: const Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               'Bem-vindo ao Explorando Nuvens!',
@@ -92,14 +92,14 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              'Este aplicativo foi desenvolvido para ajudar você a aprender mais sobre as diferentes formas de nuvens e seu impacto no clima.',
+              'Este aplicativo foi desenvolvido para ajudar você a aprender mais sobre as diferentes formas de nuvens.',
               style: TextStyle(
                 fontSize: 18,
               ),
             ),
             SizedBox(height: 16),
             Text(
-              'Você pode explorar várias categorias de nuvens, aprender sobre suas características e entender melhor como elas afetam nosso ambiente.',
+              'Você pode explorar vários tipos de nuvens, aprender um pouco mais sobre suas características.',
               style: TextStyle(
                 fontSize: 18,
               ),

@@ -20,27 +20,27 @@ class ExploringClouds extends StatelessWidget {
           runSpacing: 10.0,
           children: <Widget>[
             CloudCategoryButton(
-              categoryName: 'Cirrus',
+              nameCloudType: 'Cirrus',
               categoryImage: 'https://i.postimg.cc/5tLdF8V8/cirrus1.jpg',
             ),
             CloudCategoryButton(
-              categoryName: 'Cumulus',
+              nameCloudType: 'Cumulus',
               categoryImage: 'https://i.postimg.cc/3R1qgBb0/cumulus.jpg',
             ),
             CloudCategoryButton(
-              categoryName: 'Stratus',
+              nameCloudType: 'Stratus',
               categoryImage: 'https://i.postimg.cc/y6rQskqK/stratus-opacus.jpg',
             ),
             CloudCategoryButton(
-              categoryName: 'Altocumulus',
+              nameCloudType: 'Altocumulus',
               categoryImage: 'https://i.postimg.cc/Wz9QPnGc/altocumulus.jpg',
             ),
             CloudCategoryButton(
-              categoryName: 'Cumulonimbus',
+              nameCloudType: 'Cumulonimbus',
               categoryImage: 'https://i.postimg.cc/Bbwwzv3q/cumulonimbus.jpg',
             ),
             CloudCategoryButton(
-              categoryName: 'Stratocumulus',
+              nameCloudType: 'Stratocumulus',
               categoryImage: 'https://i.postimg.cc/KcHzk3CY/stratocumulus.jpg',
             ),
           ],

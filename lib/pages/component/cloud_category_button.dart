@@ -3,11 +3,11 @@ import 'package:clouds_identification_tab/pages/cloud_types_page.dart';
 import 'package:flutter/material.dart';
 
 class CloudCategoryButton extends StatelessWidget {
-  final String categoryName;
+  final String nameCloudType;
   final String categoryImage;
 
   CloudCategoryButton(
-      {required this.categoryName, required this.categoryImage});
+      {required this.nameCloudType, required this.categoryImage});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class CloudCategoryButton extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => CloudTypesPage(categoryName: categoryName),
+            builder: (context) => CloudTypesPage(nameCloudType: nameCloudType),
           ),
         );
       },
@@ -30,7 +30,7 @@ class CloudCategoryButton extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          Text(categoryName),
+          Text(nameCloudType),
         ],
       ),
     );

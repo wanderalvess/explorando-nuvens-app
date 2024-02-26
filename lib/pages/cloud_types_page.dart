@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 import 'package:clouds_identification_tab/model/my_image.dart';
@@ -7,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class CloudTypesPage extends StatefulWidget {
-  final String categoryName;
+  final String nameCloudType;
 
-  CloudTypesPage({required this.categoryName});
+  CloudTypesPage({required this.nameCloudType});
 
   @override
   _CloudTypesPageState createState() => _CloudTypesPageState();
@@ -23,17 +22,21 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
   void initState() {
     super.initState();
     // Simule a busca de URLs de imagens com base na categoria selecionada
-    fetchImageUrls(widget.categoryName);
+    fetchImageUrls(widget.nameCloudType);
   }
 
-  Future<void> fetchImageUrls(String categoryName) async {
+  Future<void> fetchImageUrls(String nameCloudType) async {
     final response = await http.get(Uri.parse(
-        'https://back-app-clouds.onrender.com/api/image/images?category=$categoryName'));
+        'https://back-app-clouds.onrender.com/api/image/images?category=$nameCloudType'));
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
       List<MyImage> urls = data.map((item) {
-        return MyImage(item['imageUrl']!, item['description']!, item['title']);
+        return MyImage(
+            item['imageUrl'] ?? '',
+            item['descriptionCloudType'] ?? '',
+            item['nameCloudType'] ?? ''
+        );
       }).toList();
       setState(() {
         imageUrls = urls;
@@ -45,7 +48,7 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tipos de nuvens - ${widget.categoryName}'),
+        title: Text('Tipos de nuvens - ${widget.nameCloudType}'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
@@ -60,8 +63,11 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>
-                      ImageDetailPage(imageUrl: imageUrls[index].getUrl),
+                  builder: (context) => ImageDetailPage(
+                    imageUrl: imageUrls[index].getUrl,
+                    nameCloudType: imageUrls[index].getNameCloudType,
+                    descriptionCloudType: imageUrls[index].getDescriptionCloudType,
+                  ),
                 ),
               );
             },
@@ -69,20 +75,21 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
               child: Column(
                 children: [
                   Container(
-                    width: 100,
-                    height: 100,
+                    width: 135,
+                    height: 135,
                     child: Image.network(
                       imageUrls[index].getUrl,
-                      fit: BoxFit
-                          .contain, // Controla o dimensionamento da imagem
+                      fit: BoxFit.contain,
                     ),
                   ),
                   ListTile(
                     title: Text(
-                      imageUrls[index].getTitle,
-                    ),
-                    subtitle: Text(
-                      imageUrls[index].getDescription,
+                      imageUrls[index].getNameCloudType,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ],
