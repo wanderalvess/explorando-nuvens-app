@@ -26,7 +26,7 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
   String _temp_min = '';
   String _temp_max = '';
   String _humidity = '';
-  String _image_url = 'https://i.postimg.cc/j5twKdYd/cloud.png';
+  String _image_url = 'https://i.postimg.cc/Vsxjjp40/transp.png';
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
   }
 
   Future<void> _getWeatherForecast(String city) async {
-    final apikeyHG = '14193a96';
+    final apikeyHG = '14193a96***';
     final apiUrlHG =
         'https://api.hgbrasil.com/weather?key=$apikeyHG&city_name=$city';
     final responseHG = await http.get(Uri.parse(apiUrlHG));
@@ -268,11 +268,22 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
                         ),
                         const Spacer(),
                         Expanded(
-                          child: Image.network(
-                            _image_url,
-                            height: 100,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              AnimatedContainer(
+                                duration: const Duration(seconds: 1 ),
+                                curve: Curves.easeInOut,
+                                alignment: Alignment.center,
+                                child: Image.network(
+                                  _image_url,
+                                  height: 80,
+                                  width: 75 ,
+                                ),
+                              ),
+                            ],
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),

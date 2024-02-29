@@ -9,7 +9,7 @@ class ExploringClouds extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Explorando Nuvens'),
+        title: Text('Tipos de Nuvens'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
