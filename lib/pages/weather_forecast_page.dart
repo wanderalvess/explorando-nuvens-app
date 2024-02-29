@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'package:clouds_identification_tab/model/my_image.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class WeatherForecastPage extends StatefulWidget {
   @override
@@ -12,6 +12,7 @@ class WeatherForecastPage extends StatefulWidget {
 class _WeatherForecastState extends State<WeatherForecastPage> {
   TextEditingController _cityController = TextEditingController();
   String _city = '';
+  String _defaultCity = '';
   String _temp = ''; //temperatura atual
   String _description = ''; //descrição do tempo
   String _cloudiness = ''; //nebulosidade
@@ -25,7 +26,13 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
   String _temp_min = '';
   String _temp_max = '';
   String _humidity = '';
-  String _image_url = '';
+  String _image_url = 'https://i.postimg.cc/j5twKdYd/cloud.png';
+
+  @override
+  void initState() {
+    super.initState();
+    _getWeatherForecastForDefaultCity(); // Chama o método ao criar a página
+  }
 
   Future<void> _getWeatherForecast(String city) async {
     final apikeyHG = '14193a96';
@@ -60,6 +67,9 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
         _condition_slug = 'cloudly_day';
         _description = 'Poucas nuvens';
         _cloudiness = '40.0';
+        _temp_max = '30';
+        _temp_min = '20';
+        _wind_speedy = '8.8 km/h';
       });
       getImageWeatherUrls(_condition_slug);
     }
@@ -74,6 +84,42 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
       setState(() {
         _image_url = data[0]['imageUrl'].toString();
       });
+    }
+  }
+
+  Future<void> _saveDefaultCity(BuildContext context, String city) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('default_city', city);
+
+    // Exibindo um diálogo de alerta para o usuário
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Cidade padrão cadastrada com sucesso'),
+        backgroundColor: Colors.blue,
+      ),
+    );
+  }
+
+// Função para obter a previsão do tempo usando a cidade padrão
+  Future<void> _getWeatherForecastForDefaultCity() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String defaultCity = prefs.getString('default_city') ?? '';
+    if (defaultCity.isNotEmpty) {
+      _getWeatherForecast(defaultCity);
+      print(defaultCity);
+    } else {
+      print('Nenhuma cidade padrão definida.');
+    }
+  }
+
+// Exemplo de uso da cidade salva
+  Future<void> _exemploUsoCidadeSalva() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String defaultCity = prefs.getString('default_city') ?? '';
+    if (defaultCity.isNotEmpty) {
+      print('Cidade padrão: $defaultCity');
+    } else {
+      print('Nenhuma cidade padrão definida.');
     }
   }
 
@@ -105,11 +151,31 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
                 ),
               ),
               SizedBox(height: 16.0),
-              ElevatedButton(
-                onPressed: () {
-                  _getWeatherForecast(_cityController.text);
-                },
-                child: Text('Consultar'),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      _getWeatherForecast(_cityController.text);
+                    },
+                    child: Text('Consultar'),
+                  ),
+                  SizedBox(width: 16),
+                  Visibility(
+                    visible: _city != null && _city.isNotEmpty,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            _saveDefaultCity(context, _city);
+                          },
+                          child: Text('Salvar como padrão'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: 16.0),
               Visibility(
@@ -163,7 +229,7 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
                                     ),
                                   ],
                                 ),
-                                SizedBox(width: 16), // Adiciona um espaçamento entre as colunas
+                                SizedBox(width: 16),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -200,12 +266,13 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
                             ),
                           ],
                         ),
-                        Spacer(), // Adiciona um espaço flexível entre as colunas
-                        Image.network(
-                          _image_url,
-                          height: 100,
-                          scale: 1.0,
-                        ),
+                        const Spacer(),
+                        Expanded(
+                          child: Image.network(
+                            _image_url,
+                            height: 100,
+                          ),
+                        )
                       ],
                     ),
                   ),
