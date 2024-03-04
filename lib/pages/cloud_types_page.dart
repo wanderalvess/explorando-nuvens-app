@@ -15,13 +15,11 @@ class CloudTypesPage extends StatefulWidget {
 }
 
 class _CloudTypesPageState extends State<CloudTypesPage> {
-  // Lista de URLs de imagens com base na categoria selecionada
   List<MyImage> imageUrls = [];
 
   @override
   void initState() {
     super.initState();
-    // Simule a busca de URLs de imagens com base na categoria selecionada
     fetchImageUrls(widget.nameCloudType);
   }
 

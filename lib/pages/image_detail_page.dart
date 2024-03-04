@@ -24,7 +24,7 @@ class ImageDetailPage extends StatelessWidget {
         children: [
           Image.network(
             imageUrl,
-            fit: BoxFit.cover, // Para ajustar a imagem ao tamanho da tela
+            fit: BoxFit.cover,
           ),
           const SizedBox(height: 24),
           Text(
@@ -36,7 +36,7 @@ class ImageDetailPage extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Padding(
-            padding: EdgeInsets.all(16), // Adicionando margem em todos os lados
+            padding: EdgeInsets.all(16),
             child: Text(
               descriptionCloudType,
               style: const TextStyle(
