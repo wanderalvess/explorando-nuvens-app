@@ -4,6 +4,7 @@ import 'package:clouds_identification_tab/model/my_image.dart';
 import 'package:clouds_identification_tab/pages/image_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:carousel_slider/carousel_slider.dart';
 
 class CloudTypesPage extends StatefulWidget {
   final String nameCloudType;
@@ -33,8 +34,7 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
         return MyImage(
             item['imageUrl'] ?? '',
             item['descriptionCloudType'] ?? '',
-            item['nameCloudType'] ?? ''
-        );
+            item['nameCloudType'] ?? '');
       }).toList();
       setState(() {
         imageUrls = urls;
@@ -50,52 +50,61 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-        ),
-        itemCount: imageUrls.length,
-        itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ImageDetailPage(
-                    imageUrl: imageUrls[index].getUrl,
-                    nameCloudType: imageUrls[index].getNameCloudType,
-                    descriptionCloudType: imageUrls[index].getDescriptionCloudType,
-                  ),
-                ),
-              );
-            },
-            child: Card(
-              child: Column(
-                children: [
-                  Container(
-                    width: 135,
-                    height: 135,
-                    child: Image.network(
-                      imageUrls[index].getUrl,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                  ListTile(
-                    title: Text(
-                      imageUrls[index].getNameCloudType,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+      body: imageUrls.isEmpty
+          ? const Center(
+              child:
+                  CircularProgressIndicator(),
+            )
+          : CarouselSlider.builder(
+              itemCount: imageUrls.length,
+              itemBuilder: (BuildContext context, int index, int realIndex) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageDetailPage(
+                          imageUrl: imageUrls[index].getUrl,
+                          nameCloudType: imageUrls[index].getNameCloudType,
+                          descriptionCloudType:
+                              imageUrls[index].getDescriptionCloudType,
+                        ),
                       ),
-                      textAlign: TextAlign.center,
+                    );
+                  },
+                  child: Card(
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 270,
+                          height: 270,
+                          child: Image.network(
+                            imageUrls[index].getUrl,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                        ListTile(
+                          title: Text(
+                            imageUrls[index].getNameCloudType,
+                            style: const TextStyle(
+                              fontSize: 22,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ],
+                );
+              },
+              options: CarouselOptions(
+                enableInfiniteScroll: true,
+                aspectRatio: 1.2,
+                enlargeCenterPage: false,
+                viewportFraction: 0.75,
+                autoPlay: true,
               ),
             ),
-          );
-        },
-      ),
     );
   }
 }

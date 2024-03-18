@@ -26,7 +26,7 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
   String _temp_min = '';
   String _temp_max = '';
   String _humidity = '';
-  String _image_url = 'https://i.postimg.cc/Vsxjjp40/transp.png';
+  String _image_url = '';
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
   }
 
   Future<void> _getWeatherForecast(String city) async {
-    final apikeyHG = '14193a96***';
+    final apikeyHG = '14193a96';
     final apiUrlHG =
         'https://api.hgbrasil.com/weather?key=$apikeyHG&city_name=$city';
     final responseHG = await http.get(Uri.parse(apiUrlHG));
@@ -138,161 +138,169 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
           },
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              TextField(
-                controller: _cityController,
-                decoration: const InputDecoration(
-                  labelText: 'Digite o nome da cidade',
-                ),
-              ),
-              SizedBox(height: 16.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      _getWeatherForecast(_cityController.text);
-                    },
-                    child: Text('Consultar'),
-                  ),
-                  SizedBox(width: 16),
-                  Visibility(
-                    visible: _city != null && _city.isNotEmpty,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+      body: _image_url.isEmpty
+          ? const Center(
+              child:
+                  CircularProgressIndicator(), // Mostra indicador de carregamento
+            )
+          : Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    TextField(
+                      controller: _cityController,
+                      decoration: const InputDecoration(
+                        labelText: 'Digite o nome da cidade',
+                      ),
+                    ),
+                    SizedBox(height: 16.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
                           onPressed: () {
-                            _saveDefaultCity(context, _city);
+                            _getWeatherForecast(_cityController.text);
                           },
-                          child: Text('Salvar como padrão'),
+                          child: Text('Consultar'),
                         ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 16.0),
-              Visibility(
-                visible: _city != null && _city.isNotEmpty,
-                child: Card(
-                  elevation: 4,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              _city,
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 8),
-                            Text(
-                              _date,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                color: Colors.grey,
-                              ),
-                            ),
-                            SizedBox(height: 8),
-                            Row(
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(
-                                      'Temperatura:',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Text(
-                                      '$_temp°C',
-                                      style: const TextStyle(
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(width: 16),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(
-                                      'Nebulosidade:',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    Text(
-                                      _cloudiness.replaceAll('.', ',') + '%',
-                                      style: const TextStyle(
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 16),
-                            const Text(
-                              'Descrição do Tempo:',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              _description,
-                              style: const TextStyle(
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const Spacer(),
-                        Expanded(
+                        SizedBox(width: 16),
+                        Visibility(
+                          visible: _city != null && _city.isNotEmpty,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              AnimatedContainer(
-                                duration: const Duration(seconds: 1 ),
-                                curve: Curves.easeInOut,
-                                alignment: Alignment.center,
-                                child: Image.network(
-                                  _image_url,
-                                  height: 80,
-                                  width: 75 ,
-                                ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  _saveDefaultCity(context, _city);
+                                },
+                                child: Text('Salvar como padrão'),
                               ),
                             ],
                           ),
                         ),
                       ],
                     ),
-                  ),
+                    SizedBox(height: 16.0),
+                    Visibility(
+                      visible: _city != null && _city.isNotEmpty,
+                      child: Card(
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    _city,
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    _date,
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  SizedBox(height: 8),
+                                  Row(
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Text(
+                                            'Temperatura:',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Text(
+                                            '$_temp°C',
+                                            style: const TextStyle(
+                                              fontSize: 20,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(width: 16),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Text(
+                                            'Nebulosidade:',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Text(
+                                            _cloudiness.replaceAll('.', ',') +
+                                                '%',
+                                            style: const TextStyle(
+                                              fontSize: 20,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 16),
+                                  const Text(
+                                    'Descrição do Tempo:',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    _description,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const Spacer(),
+                              Expanded(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    AnimatedContainer(
+                                      duration: const Duration(seconds: 1),
+                                      curve: Curves.easeInOut,
+                                      alignment: Alignment.center,
+                                      child: Image.network(
+                                        _image_url,
+                                        height: 80,
+                                        width: 75,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
-        ),
-      ),
+            ),
     );
   }
 }
