@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     icon: Icon(Icons.explore),
-                    label: const Text('Explorar Nuvens', style: TextStyle(fontSize: 12),),
+                    label: const Text('Explorar Nuvens', style: TextStyle(fontSize: 16),),
 
                   ),
                 ),
@@ -69,7 +69,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     icon: Icon(Icons.sunny),
-                    label: const Text('Previsão do Tempo', style: TextStyle(fontSize: 12),),
+                    label: const Text('Previsão do Tempo', style: TextStyle(fontSize: 15),),
                   ),
                 ),
               ],
@@ -88,7 +88,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     icon: Icon(Icons.abc_sharp),
-                    label: const Text('algo', style: TextStyle(fontSize: 12),),
+                    label: const Text('algo', style: TextStyle(fontSize: 16),),
                   ),
                 ),
                 SizedBox(width: 16),
@@ -103,7 +103,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     icon: Icon(Icons.account_balance_outlined),
-                    label: const Text('Sobre esse APP', style: TextStyle(fontSize: 12)),
+                    label: const Text('Sobre esse APP', style: TextStyle(fontSize: 16)),
                   ),
                 ),
               ],
