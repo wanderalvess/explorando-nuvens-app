@@ -88,7 +88,7 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
       setState(() {
         _city = 'Goiânia, GO';
         _temp = '30';
-        _date = '27/02';
+        _date = '27/03';
         _condition = 'cloudly_day';
         _description = 'Poucas nuvens';
         _cloudiness = '40.0';

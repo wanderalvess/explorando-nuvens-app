@@ -1,6 +1,8 @@
 import 'package:clouds_identification_tab/pages/about.dart';
 import 'package:clouds_identification_tab/pages/component/drawer_menu.dart';
 import 'package:clouds_identification_tab/pages/exploring_clouds_page.dart';
+import 'package:clouds_identification_tab/pages/privacy_page.dart';
+import 'package:clouds_identification_tab/pages/terms_page.dart';
 import 'package:clouds_identification_tab/pages/weather_forecast_page.dart';
 import 'package:flutter/material.dart';
 
@@ -83,7 +85,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => WeatherForecastPage(),
+                          builder: (context) => About(),
                         ),
                       );
                     },
@@ -104,6 +106,40 @@ class HomePage extends StatelessWidget {
                     },
                     icon: Icon(Icons.account_balance_outlined),
                     label: const Text('Sobre esse APP', style: TextStyle(fontSize: 16)),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TermsPage(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.newspaper_sharp),
+                    label: const Text('Termos de uso', style: TextStyle(fontSize: 16),),
+                  ),
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PrivacyScreen(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.account_balance_wallet_rounded),
+                    label: const Text('Privacidade', style: TextStyle(fontSize: 16)),
                   ),
                 ),
               ],
