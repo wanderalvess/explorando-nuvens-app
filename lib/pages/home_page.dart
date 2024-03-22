@@ -1,8 +1,12 @@
 import 'package:clouds_identification_tab/pages/about.dart';
+import 'package:clouds_identification_tab/pages/brazilian_climates.dart';
+import 'package:clouds_identification_tab/pages/climate_phenomena.dart';
+import 'package:clouds_identification_tab/pages/climatic_factors.dart';
 import 'package:clouds_identification_tab/pages/component/drawer_menu.dart';
 import 'package:clouds_identification_tab/pages/exploring_clouds_page.dart';
 import 'package:clouds_identification_tab/pages/privacy_page.dart';
 import 'package:clouds_identification_tab/pages/terms_page.dart';
+import 'package:clouds_identification_tab/pages/weather_climate.dart';
 import 'package:clouds_identification_tab/pages/weather_forecast_page.dart';
 import 'package:flutter/material.dart';
 
@@ -59,7 +63,7 @@ class HomePage extends StatelessWidget {
 
                   ),
                 ),
-                SizedBox(width: 16),
+                SizedBox(width: 9),
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
@@ -85,27 +89,62 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => About(),
+                          builder: (context) => BrazilianClimates(),
                         ),
                       );
                     },
-                    icon: Icon(Icons.abc_sharp),
-                    label: const Text('algo', style: TextStyle(fontSize: 16),),
+                    icon: Icon(Icons.electric_bolt_sharp),
+                    label: const Text('Climas do Brasil', style: TextStyle(fontSize: 16),),
                   ),
                 ),
-                SizedBox(width: 16),
+                SizedBox(width: 8),
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => About(),
+                          builder: (context) => WeatherClimate(),
                         ),
                       );
                     },
-                    icon: Icon(Icons.account_balance_outlined),
-                    label: const Text('Sobre esse APP', style: TextStyle(fontSize: 16)),
+                    icon: Icon(Icons.cloud),
+                    label: const Text('Tempo e Clima', style: TextStyle(fontSize: 16)),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ClimaticFactors(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.beach_access_rounded),
+                    label: const Text('Fatores Climáticos', style: TextStyle(fontSize: 16)),
+                  ),
+                ),
+                SizedBox(width: 8),
+
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ClimatePhenomena(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.cyclone),
+                    label: const Text('Fenômenos Climáticos', style: TextStyle(fontSize: 16)),
                   ),
                 ),
               ],
@@ -127,7 +166,7 @@ class HomePage extends StatelessWidget {
                     label: const Text('Termos de uso', style: TextStyle(fontSize: 16),),
                   ),
                 ),
-                SizedBox(width: 16),
+                SizedBox(width: 8),
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
@@ -140,6 +179,25 @@ class HomePage extends StatelessWidget {
                     },
                     icon: Icon(Icons.account_balance_wallet_rounded),
                     label: const Text('Privacidade', style: TextStyle(fontSize: 16)),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => About(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.account_balance_outlined),
+                    label: const Text('Sobre esse APP', style: TextStyle(fontSize: 16)),
                   ),
                 ),
               ],

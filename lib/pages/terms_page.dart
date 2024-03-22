@@ -20,7 +20,7 @@ class TermsPage extends StatelessWidget {
             onPressed: () => Navigator.pop(context),
             icon: Icon(Icons.arrow_back)),
       ),
-      body: Column(
+      body: const Column(
         children: [
           Padding(
             padding: EdgeInsets.all(16.0),
@@ -39,7 +39,7 @@ class TermsPage extends StatelessWidget {
             child: SingleChildScrollView(
               physics: AlwaysScrollableScrollPhysics(),
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(10.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
