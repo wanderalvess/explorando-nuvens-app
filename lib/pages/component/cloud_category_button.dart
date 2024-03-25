@@ -22,8 +22,8 @@ class CloudCategoryButton extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 105,
-            height: 105,
+            width: 165,
+            height: 165,
             child: Image.network(
               categoryImage,
               fit: BoxFit.cover,
@@ -31,7 +31,7 @@ class CloudCategoryButton extends StatelessWidget {
           ),
           Text(
             nameCloudType,
-            style: const TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 20),
           ),
         ],
       ),
