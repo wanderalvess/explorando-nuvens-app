@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ClimaticFactors extends StatelessWidget {
-  final String imageUrl = 'https://s3.static.brasilescola.uol.com.br/be/2022/09/paisagem-ceu-tempestuoso.jpg';
+  final String imageUrl = 'https://i.pinimg.com/736x/4d/23/b0/4d23b0bea1e52906baa05093bdab6590.jpg';
 
   @override
   Widget build(BuildContext context) {

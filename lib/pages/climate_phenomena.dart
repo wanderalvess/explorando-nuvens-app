@@ -32,7 +32,7 @@ class ClimatePhenomena extends StatelessWidget {
           ),
           Expanded(
             child: SingleChildScrollView(
-              physics: AlwaysScrollableScrollPhysics(),
+              physics: const AlwaysScrollableScrollPhysics(),
               child: Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Column(
