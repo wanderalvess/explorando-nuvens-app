@@ -13,7 +13,7 @@ class PrivacyPage extends StatelessWidget {
         ),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
         leading: IconButton(
             onPressed: () => Navigator.pop(context),

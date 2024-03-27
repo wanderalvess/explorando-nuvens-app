@@ -45,7 +45,7 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Tipos de nuvens - ${widget.nameCloudType}'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
       ),
       body: imageUrls.isEmpty
@@ -77,7 +77,7 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
                           height: 270,
                           child: Image.network(
                             imageUrls[index].getUrl,
-                            fit: BoxFit.contain,
+                            fit: BoxFit.fitHeight,
                           ),
                         ),
                         ListTile(
@@ -96,9 +96,10 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
               },
               options: CarouselOptions(
                 enableInfiniteScroll: true,
-                aspectRatio: 1.2,
-                enlargeCenterPage: false,
-                viewportFraction: 0.75,
+                aspectRatio: 1.20,
+                enlargeCenterPage: true,
+                viewportFraction: 0.7,
+                enlargeStrategy: CenterPageEnlargeStrategy.zoom,
                 autoPlay: true,
               ),
             ),

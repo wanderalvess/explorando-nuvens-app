@@ -10,7 +10,7 @@ class ExploringCloudsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Tipos de Nuvens'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
       ),
       body: Padding(

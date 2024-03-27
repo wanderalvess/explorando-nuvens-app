@@ -9,7 +9,7 @@ class ClimaticFactorsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Fatores Climáticos'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
       ),
       body: Column(

@@ -9,7 +9,7 @@ class BrazilianClimatesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Climas Brasileiros'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
       ),
       body: Column(

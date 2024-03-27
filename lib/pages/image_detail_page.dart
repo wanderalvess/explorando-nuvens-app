@@ -16,7 +16,7 @@ class ImageDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Detalhes'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
       ),
       body: Column(
