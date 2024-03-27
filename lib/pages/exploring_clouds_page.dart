@@ -61,6 +61,34 @@ class ExploringCloudsPage extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox( height: 10,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildCloudCard(
+                    name: 'Altostratus',
+                    imageUrl: 'https://i.postimg.cc/Mfqh2ftV/Altostratus.jpg',
+                  ),
+                  buildCloudCard(
+                    name: 'Cirrocumulus',
+                    imageUrl: 'https://i.postimg.cc/MXwTKsFb/Cirrocumulus.jpg',
+                  ),
+                ],
+              ),
+              SizedBox( height: 10,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildCloudCard(
+                    name: 'Cirrostratus',
+                    imageUrl: 'https://i.postimg.cc/m25tXQ3X/Cirrostratus.jpg',
+                  ),
+                  buildCloudCard(
+                    name: 'Nimbostratus',
+                    imageUrl: 'https://i.postimg.cc/prfm4CZc/Nimbostratus.jpg',
+                  ),
+                ],
+              ),
             ],
           ),
         ),
