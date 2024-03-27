@@ -1,12 +1,12 @@
-import 'package:clouds_identification_tab/pages/about.dart';
-import 'package:clouds_identification_tab/pages/brazilian_climates.dart';
-import 'package:clouds_identification_tab/pages/climate_phenomena.dart';
-import 'package:clouds_identification_tab/pages/climatic_factors.dart';
+import 'package:clouds_identification_tab/pages/about_page.dart';
+import 'package:clouds_identification_tab/pages/brazilian_climates_page.dart';
+import 'package:clouds_identification_tab/pages/climate_phenomena_page.dart';
+import 'package:clouds_identification_tab/pages/climatic_factors_page.dart';
 import 'package:clouds_identification_tab/pages/component/drawer_menu.dart';
 import 'package:clouds_identification_tab/pages/exploring_clouds_page.dart';
 import 'package:clouds_identification_tab/pages/privacy_page.dart';
 import 'package:clouds_identification_tab/pages/terms_page.dart';
-import 'package:clouds_identification_tab/pages/weather_climate.dart';
+import 'package:clouds_identification_tab/pages/weather_climate_page.dart';
 import 'package:clouds_identification_tab/pages/weather_forecast_page.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Explorando Nuvens'),
+        title: Text('Explorando o Clima'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
             //     'https://i.postimg.cc/bJ97m8dJ/altocumulus-lenticularis.jpg'),
             const SizedBox(height: 16),
             const Text(
-              'Bem-vindo ao Explorando Nuvens!',
+              'Bem-vindo ao Explorando o Clima!',
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ExploringClouds(),
+                          builder: (context) => ExploringCloudsPage(),
                         ),
                       );
                     },
@@ -89,7 +89,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => BrazilianClimates(),
+                          builder: (context) => BrazilianClimatesPage(),
                         ),
                       );
                     },
@@ -104,7 +104,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => WeatherClimate(),
+                          builder: (context) => WeatherClimatePage(),
                         ),
                       );
                     },
@@ -123,7 +123,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ClimaticFactors(),
+                          builder: (context) => ClimaticFactorsPage(),
                         ),
                       );
                     },
@@ -139,7 +139,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ClimatePhenomena(),
+                          builder: (context) => ClimatePhenomenaPage(),
                         ),
                       );
                     },
@@ -173,7 +173,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => PrivacyScreen(),
+                          builder: (context) => PrivacyPage(),
                         ),
                       );
                     },
@@ -192,7 +192,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => About(),
+                          builder: (context) => AboutPage(),
                         ),
                       );
                     },

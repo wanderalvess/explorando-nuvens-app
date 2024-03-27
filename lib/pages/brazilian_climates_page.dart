@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class BrazilianClimates extends StatelessWidget {
+class BrazilianClimatesPage extends StatelessWidget {
   final String imageUrl = 'https://s1.static.brasilescola.uol.com.br/be/2021/10/mapa-climas-brasil.jpg';
 
   @override

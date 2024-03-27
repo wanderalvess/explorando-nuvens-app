@@ -31,10 +31,8 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
       List<MyImage> urls = data.map((item) {
-        return MyImage(
-            item['imageUrl'] ?? '',
-            item['descriptionCloudType'] ?? '',
-            item['nameCloudType'] ?? '');
+        return MyImage(item['imageUrl'] ?? '',
+            item['descriptionCloudType'] ?? '', item['nameCloudType'] ?? '');
       }).toList();
       setState(() {
         imageUrls = urls;
@@ -52,8 +50,7 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
       ),
       body: imageUrls.isEmpty
           ? const Center(
-              child:
-                  CircularProgressIndicator(),
+              child: CircularProgressIndicator(),
             )
           : CarouselSlider.builder(
               itemCount: imageUrls.length,

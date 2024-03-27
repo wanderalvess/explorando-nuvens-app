@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class WeatherClimate extends StatelessWidget {
-  final String imageUrl = 'https://s3.static.brasilescola.uol.com.br/be/2022/09/paisagem-ceu-tempestuoso.jpg';
+class ClimatePhenomenaPage extends StatelessWidget {
+  final String imageUrl = 'https://s5.static.brasilescola.uol.com.br/be/2022/09/formacao-furacao.jpg';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tempo e Clima'),
+        title: Text('Fenômenos climáticos'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
@@ -20,7 +20,7 @@ class WeatherClimate extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Quais as diferenças entre clima e tempo?',
+                  'Fenômenos Climáticos',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -32,7 +32,7 @@ class WeatherClimate extends StatelessWidget {
           ),
           Expanded(
             child: SingleChildScrollView(
-              physics: AlwaysScrollableScrollPhysics(),
+              physics: const AlwaysScrollableScrollPhysics(),
               child: Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Column(
@@ -42,30 +42,52 @@ class WeatherClimate extends StatelessWidget {
                     Image.network(imageUrl), // Adicionando a imagem
                     SizedBox(height: 18),
                     const Text(
-                      'O tempo e o clima são frequentemente confundidos, e os termos são muito utilizados como sinônimos. Embora haja uma correlação entre o tempo e o clima, eles representam conceitos distintos, que se diferenciam sobretudo na sua abrangência temporal.',
+                      'Os fenômenos climáticos apresentam ocorrência natural e são resultantes das dinâmicas da atmosfera. Alguns deles têm a sua ação intensificada em decorrência da ação antrópica, conforme veremos a seguir.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18,
                       ),
                     ),
                     const SizedBox(height: 8),
                     const Text(
-                      'O Tempo',
+                      'Ciclones',
                       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
                     const Text(
-                      'É a condição da atmosfera e seus respectivos fenômenos em um determinado momento, isto é, corresponde à situação atual e tem uma duração curta. O tempo é, portanto, dinâmico e instável, podendo alterar rapidamente. Quando olhamos pela janela e dizemos que o dia está quente e ensolarado, por exemplo, estamos nos referindo ao tempo.',
+                      'Formados em áreas de baixa pressão onde há grande instabilidade atmosférica decorrente do movimento de convergência e ascensão do ar quente. São chamados também de tempestade tropical. Ciclone é uma denominação genérica para tufões e furacões, que se diferenciam apenas quanto ao local de origem.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18),
                     ),
                     SizedBox(height: 8),
                     const Text(
-                      'O Clima',
+                      'Tornados',
                       style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
                     const Text(
-                      'Reúne as informações sobre as características atmosféricas de um local em um longo intervalo temporal. Podemos constatar, então, que o clima é resultante de uma análise cuidadosa e periódica do tempo atmosférico em uma determinada localidade. Esse período é de pelo menos 30 anos. Por essa razão, o Instituto Nacional de Pesquisas Espaciais (Inpe) define o clima como sendo o estado médio dos parâmetros do tempo',
+                      'Colunas de ar que giram em alta velocidade ao redor de uma área de baixa pressão atmosférica e têm origem nas grandes nuvens de tempestade.',
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    SizedBox(height: 8),
+                    const Text(
+                      'Ilha de Calor',
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 8),
+                    const Text(
+                      'Acontece quando há a formação de uma área de maior temperatura nas cidades, tornando-as mais quentes do que as áreas circundantes.',
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    SizedBox(height: 8),
+                    const Text(
+                      'El Niño e la Niña',
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 8),
+                    const Text(
+                      'Fenômenos climáticos associados ao aquecimento (El Niño) ou resfriamento (La Niña) anormal das águas do oceano Pacífico devido à mudança no nível da termoclina, que aprofunda a camada de águas mais frias ou provoca a sua ressurgência.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 18),
                     ),

@@ -2,8 +2,8 @@ import 'package:clouds_identification_tab/pages/component/cloud_category_button.
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ExploringClouds extends StatelessWidget {
-  const ExploringClouds({Key? key}) : super(key: key);
+class ExploringCloudsPage extends StatelessWidget {
+  const ExploringCloudsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
