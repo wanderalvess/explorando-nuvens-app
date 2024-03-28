@@ -31,8 +31,12 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
       List<MyImage> urls = data.map((item) {
-        return MyImage(item['imageUrl'] ?? '',
-            item['descriptionCloudType'] ?? '', item['nameCloudType'] ?? '');
+        return MyImage(
+            item['imageUrl'] ?? '',
+            item['descriptionCloudType'] ?? '',
+            item['nameCloudType'] ?? '',
+            item['titleCloudType']?? ''
+        );
       }).toList();
       setState(() {
         imageUrls = urls;
@@ -63,8 +67,8 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
                         builder: (context) => ImageDetailPage(
                           imageUrl: imageUrls[index].getUrl,
                           nameCloudType: imageUrls[index].getNameCloudType,
-                          descriptionCloudType:
-                              imageUrls[index].getDescriptionCloudType,
+                          titleCloudType: imageUrls[index].getTitleCloudType,
+                          descriptionCloudType: imageUrls[index].getDescriptionCloudType,
                         ),
                       ),
                     );
@@ -82,9 +86,9 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
                         ),
                         ListTile(
                           title: Text(
-                            imageUrls[index].getNameCloudType,
+                            imageUrls[index].getTitleCloudType,
                             style: const TextStyle(
-                              fontSize: 22,
+                              fontSize: 20,
                             ),
                             textAlign: TextAlign.center,
                           ),

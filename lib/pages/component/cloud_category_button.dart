@@ -31,7 +31,7 @@ class CloudCategoryButton extends StatelessWidget {
           ),
           Text(
             nameCloudType,
-            style: const TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 22),
           ),
         ],
       ),

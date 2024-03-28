@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 class ImageDetailPage extends StatelessWidget {
   final String imageUrl;
   final String nameCloudType;
+  final String titleCloudType;
   final String descriptionCloudType;
 
   ImageDetailPage(
       {super.key,
       required this.imageUrl,
       required this.nameCloudType,
+      required this.titleCloudType,
       required this.descriptionCloudType});
 
   @override
@@ -42,8 +44,19 @@ class ImageDetailPage extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 20,
               ),
+              textAlign: TextAlign.justify,
             ),
           ),
+          SizedBox(height: 8),
+          const Text(
+            'Fonte: International Cloud Atlas',
+            style: TextStyle(
+              fontSize: 14,
+              fontStyle: FontStyle.italic,
+              color: Colors.grey,
+            ),
+          ),
+          SizedBox(height: 8),
         ],
       ),
     );
