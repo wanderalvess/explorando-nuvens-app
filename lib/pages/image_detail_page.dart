@@ -37,14 +37,19 @@ class ImageDetailPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          Padding(
-            padding: EdgeInsets.all(16),
-            child: Text(
-              descriptionCloudType,
-              style: const TextStyle(
-                fontSize: 20,
+          Expanded(
+            child: SingleChildScrollView(
+              physics: AlwaysScrollableScrollPhysics(),
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  descriptionCloudType,
+                  style: const TextStyle(
+                    fontSize: 20,
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
               ),
-              textAlign: TextAlign.justify,
             ),
           ),
           SizedBox(height: 8),
