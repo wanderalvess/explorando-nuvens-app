@@ -1,8 +1,13 @@
+import 'package:clouds_identification_tab/pages/about_page.dart';
+import 'package:clouds_identification_tab/pages/brazilian_climates_page.dart';
+import 'package:clouds_identification_tab/pages/climate_phenomena_page.dart';
+import 'package:clouds_identification_tab/pages/climatic_factors_page.dart';
+import 'package:clouds_identification_tab/pages/component/drawer_menu.dart';
 import 'package:clouds_identification_tab/pages/exploring_clouds_page.dart';
 import 'package:clouds_identification_tab/pages/privacy_page.dart';
 import 'package:clouds_identification_tab/pages/terms_page.dart';
+import 'package:clouds_identification_tab/pages/weather_climate_page.dart';
 import 'package:clouds_identification_tab/pages/weather_forecast_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,108 +15,194 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Explorando Nuvens'),
-        backgroundColor: Colors.blue,
+        title: Text('Explorando o Clima'),
+        backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text('Início'),
-              onTap: () {
-                Navigator.pop(context); // Fecha o Drawer
-              },
-            ),
-            ListTile(
-              title: Text('Explorando as Nuvens'),
-              onTap: () {
-                Navigator.pop(context); // Fecha o Drawer
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ExploringClouds()),
-                );
-              },
-            ),
-            ListTile(
-              title: Text('Previsão do Tempo'),
-              onTap: () {
-                Navigator.pop(context); // Fecha o Drawer
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => WeatherForecastPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: Text('Termos de uso'),
-              onTap: () {
-                Navigator.pop(context); // Fecha o Drawer
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => TermsPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: Text('Privacidade'),
-              onTap: () {
-                Navigator.pop(context); // Fecha o Drawer
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => PrivacyScreen()),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
+      drawer: DrawerMenu(),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              'Bem-vindo ao Explorando Nuvens!',
+            // Image.network(
+            //     'https://i.postimg.cc/bJ97m8dJ/altocumulus-lenticularis.jpg'),
+            const SizedBox(height: 16),
+            const Text(
+              'Bem-vindo ao Explorando o Clima!',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 16),
-            Text(
-              'Este aplicativo foi desenvolvido para ajudar você a aprender mais sobre as diferentes formas de nuvens.',
+            const SizedBox(height: 16),
+            const Text(
+              'O que vamos fazer hoje?',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 16),
-            Text(
-              'Você pode explorar vários tipos de nuvens, aprender um pouco mais sobre suas características.',
-              style: TextStyle(
-                fontSize: 18,
-              ),
+            const SizedBox(height: 48),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ExploringCloudsPage(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.explore),
+                    label: const Text('Explorar Nuvens', style: TextStyle(fontSize: 16),),
+
+                  ),
+                ),
+                SizedBox(width: 9),
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WeatherForecastPage(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.sunny),
+                    label: const Text('Previsão do Tempo', style: TextStyle(fontSize: 15),),
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 16),
-            Text(
-              'Além disso, o aplicativo fornece informações sobre termos de uso e políticas de privacidade para garantir uma experiência segura e confiável.',
-              style: TextStyle(
-                fontSize: 18,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BrazilianClimatesPage(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.electric_bolt_sharp),
+                    label: const Text('Climas do Brasil', style: TextStyle(fontSize: 16),),
+                  ),
+                ),
+                SizedBox(width: 8),
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WeatherClimatePage(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.cloud),
+                    label: const Text('Tempo e Clima', style: TextStyle(fontSize: 16)),
+                  ),
+                ),
+              ],
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ClimaticFactorsPage(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.beach_access_rounded),
+                    label: const Text('Fatores Climáticos', style: TextStyle(fontSize: 16)),
+                  ),
+                ),
+                SizedBox(width: 8),
+
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ClimatePhenomenaPage(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.cyclone),
+                    label: const Text('Fenômenos Climáticos', style: TextStyle(fontSize: 16)),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TermsPage(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.newspaper_sharp),
+                    label: const Text('Termos de uso', style: TextStyle(fontSize: 16),),
+                  ),
+                ),
+                SizedBox(width: 8),
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PrivacyPage(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.account_balance_wallet_rounded),
+                    label: const Text('Privacidade', style: TextStyle(fontSize: 16)),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AboutPage(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.account_balance_outlined),
+                    label: const Text('Sobre esse APP', style: TextStyle(fontSize: 16)),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
           ],
         ),
       ),

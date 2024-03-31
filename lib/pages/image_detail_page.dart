@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 class ImageDetailPage extends StatelessWidget {
   final String imageUrl;
   final String nameCloudType;
+  final String titleCloudType;
   final String descriptionCloudType;
 
   ImageDetailPage(
       {super.key,
       required this.imageUrl,
       required this.nameCloudType,
+      required this.titleCloudType,
       required this.descriptionCloudType});
 
   @override
@@ -16,7 +18,7 @@ class ImageDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Detalhes'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
       ),
       body: Column(
@@ -24,7 +26,7 @@ class ImageDetailPage extends StatelessWidget {
         children: [
           Image.network(
             imageUrl,
-            fit: BoxFit.cover, // Para ajustar a imagem ao tamanho da tela
+            fit: BoxFit.cover,
           ),
           const SizedBox(height: 24),
           Text(
@@ -35,15 +37,31 @@ class ImageDetailPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          Padding(
-            padding: EdgeInsets.all(16), // Adicionando margem em todos os lados
-            child: Text(
-              descriptionCloudType,
-              style: const TextStyle(
-                fontSize: 20,
+          Expanded(
+            child: SingleChildScrollView(
+              physics: AlwaysScrollableScrollPhysics(),
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Text(
+                  descriptionCloudType,
+                  style: const TextStyle(
+                    fontSize: 20,
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
               ),
             ),
           ),
+          SizedBox(height: 8),
+          const Text(
+            'Fonte: International Cloud Atlas',
+            style: TextStyle(
+              fontSize: 14,
+              fontStyle: FontStyle.italic,
+              color: Colors.grey,
+            ),
+          ),
+          SizedBox(height: 8),
         ],
       ),
     );

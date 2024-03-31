@@ -1,4 +1,3 @@
-
 import 'package:clouds_identification_tab/pages/cloud_types_page.dart';
 import 'package:flutter/material.dart';
 
@@ -23,17 +22,19 @@ class CloudCategoryButton extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 100,
-            height: 100,
+            width: 165,
+            height: 165,
             child: Image.network(
               categoryImage,
               fit: BoxFit.cover,
             ),
           ),
-          Text(nameCloudType),
+          Text(
+            nameCloudType,
+            style: const TextStyle(fontSize: 22),
+          ),
         ],
       ),
     );
   }
 }
-

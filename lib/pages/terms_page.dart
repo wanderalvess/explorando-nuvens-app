@@ -8,9 +8,9 @@ class TermsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           'Termos de uso',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
@@ -20,7 +20,7 @@ class TermsPage extends StatelessWidget {
             onPressed: () => Navigator.pop(context),
             icon: Icon(Icons.arrow_back)),
       ),
-      body: Column(
+      body: const Column(
         children: [
           Padding(
             padding: EdgeInsets.all(16.0),
@@ -29,7 +29,8 @@ class TermsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Bem-vindo ao aplicativo Explorando Nuvens! Antes de utilizar nossos serviços, pedimos que leia atentamente estes termos. Ao utilizar nosso aplicativo, você concorda com estes termos.',
+                  'Antes de utilizar nossos serviços, pedimos que leia atentamente estes termos. Ao utilizar nosso aplicativo, você concorda com estes termos.',
+                  textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ],
@@ -39,7 +40,7 @@ class TermsPage extends StatelessWidget {
             child: SingleChildScrollView(
               physics: AlwaysScrollableScrollPhysics(),
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(10.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,14 +52,17 @@ class TermsPage extends StatelessWidget {
                     SizedBox(height: 8),
                     Text(
                       '1.1. Para utilizar os serviços deste aplicativo, é necessário se cadastrar fornecendo informações precisas e verdadeiras.',
+                      textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 8),
                     Text(
                       '1.2. As informações de cadastro obrigatórias incluem nome, endereço de e-mail e senha. Outras informações como data de aniversário, peso, altura, foto, sexo e qualquer outra informação pessoal são opcionais.',
+                      textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 8),
                     Text(
                       '1.3. Ao fornecer suas informações pessoais, você concorda que elas sejam armazenadas e processadas de acordo com nossa Política de Privacidade.',
+                      textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 16),
                     Text(
@@ -68,14 +72,17 @@ class TermsPage extends StatelessWidget {
                     SizedBox(height: 8),
                     Text(
                       '2.1. Você concorda em utilizar este aplicativo apenas para os fins previstos, ou seja, registrar treinos de academia e acompanhar seu progresso pessoal.',
+                      textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 8),
                     Text(
                       '2.2. Você é responsável por manter a confidencialidade de sua senha e por todas as atividades que ocorram em sua conta.',
+                      textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 8),
                     Text(
                       '2.3. Você concorda em não utilizar este aplicativo para qualquer atividade ilegal, fraudulenta, prejudicial ou não autorizada.',
+                      textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 16),
                     Text(
@@ -85,10 +92,12 @@ class TermsPage extends StatelessWidget {
                     SizedBox(height: 8),
                     Text(
                       '3.1. Todos os direitos autorais, marcas registradas e outros direitos de propriedade intelectual relacionados ao aplicativo são de propriedade exclusiva do desenvolvedor.',
+                      textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 8),
                     Text(
                       '3.2. Você concorda em não reproduzir, distribuir, modificar ou criar obras derivadas com base no conteúdo deste aplicativo sem autorização prévia por escrito.',
+                      textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 16),
                     Text(
@@ -98,6 +107,7 @@ class TermsPage extends StatelessWidget {
                     SizedBox(height: 8),
                     Text(
                       '4.1. O uso deste aplicativo é por sua conta e risco. Não nos responsabilizamos por quaisquer danos diretos, indiretos, incidentais, consequenciais ou especiais resultantes do uso ou da incapacidade de usar este aplicativo.',
+                      textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 8),
                     Text(
@@ -111,14 +121,17 @@ class TermsPage extends StatelessWidget {
                     SizedBox(height: 8),
                     Text(
                       '5.1. Reservamo-nos o direito de modificar estes termos a qualquer momento, mediante aviso prévio.',
+                      textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 8),
                     Text(
                       '5.2. O uso continuado do aplicativo após a publicação das modificações constitui sua aceitação dos termos revisados.',
+                      textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 16),
                     Text(
                       'Ao utilizar este aplicativo, você concorda com estes termos de uso. Se não concordar com estes termos, por favor, não utilize nosso aplicativo.',
+                      textAlign: TextAlign.justify,
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
