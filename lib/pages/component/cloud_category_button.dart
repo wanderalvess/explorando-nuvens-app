@@ -5,11 +5,13 @@ class CloudCategoryButton extends StatelessWidget {
   final String nameCloudType;
   final String categoryImage;
 
-  CloudCategoryButton(
+  const CloudCategoryButton(
       {required this.nameCloudType, required this.categoryImage});
 
   @override
   Widget build(BuildContext context) {
+    double widthScreen = MediaQuery.of(context).size.width;
+    double heightScreen = MediaQuery.of(context).size.width;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -22,8 +24,8 @@ class CloudCategoryButton extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 165,
-            height: 165,
+            width: widthScreen ,
+            height: heightScreen / 3,
             child: Image.network(
               categoryImage,
               fit: BoxFit.cover,

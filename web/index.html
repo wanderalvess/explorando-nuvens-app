@@ -27,22 +27,6 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
-<script>
-  window.addEventListener('load', function(ev) {
-    // Download main.dart.js
-    _flutter.loader.load({
-      entrypointUrl: 'main.dart.js',
-      serviceWorker: {
-        serviceWorkerVersion: serviceWorkerVersion,
-      }
-    }).then(function(engineInitializer) {
-      return engineInitializer.initializeEngine();
-    }).then(function(appRunner) {
-      return appRunner.runApp();
-    }).catch(function(error) {
-      console.error('Erro ao carregar e inicializar a aplicação Flutter:', error);
-    });
-  });
-</script>
+  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

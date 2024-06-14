@@ -14,7 +14,7 @@ class ExploringCloudsPage extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
       body: Padding(
-        padding: EdgeInsets.all(22.0),
+        padding: const EdgeInsets.all(22.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,28 +22,18 @@ class ExploringCloudsPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildCloudCard(
-                    name: 'Cirrus',
-                    imageUrl: 'https://i.postimg.cc/5tLdF8V8/cirrus1.jpg',
+                  Expanded(
+                    child: buildCloudCard(
+                      name: 'Cirrus',
+                      imageUrl: 'https://i.postimg.cc/5tLdF8V8/cirrus1.jpg',
+                    ),
                   ),
-                  buildCloudCard(
-                    name: 'Stratus',
-                    imageUrl:
-                        'https://i.postimg.cc/y6rQskqK/stratus-opacus.jpg',
-                  ),
-                ],
-              ),
-              SizedBox( height: 10,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  buildCloudCard(
-                    name: 'Cumulonimbus',
-                    imageUrl: 'https://i.postimg.cc/Bbwwzv3q/cumulonimbus.jpg',
-                  ),
-                  buildCloudCard(
-                    name: 'Stratocumulus',
-                    imageUrl: 'https://i.postimg.cc/KcHzk3CY/stratocumulus.jpg',
+                  Expanded(
+                    child: buildCloudCard(
+                      name: 'Stratus',
+                      imageUrl:
+                          'https://i.postimg.cc/y6rQskqK/stratus-opacus.jpg',
+                    ),
                   ),
                 ],
               ),
@@ -51,27 +41,17 @@ class ExploringCloudsPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildCloudCard(
-                    name: 'Altocumulus',
-                    imageUrl: 'https://i.postimg.cc/Wz9QPnGc/altocumulus.jpg',
+                  Expanded(
+                    child: buildCloudCard(
+                      name: 'Cumulonimbus',
+                      imageUrl: 'https://i.postimg.cc/Bbwwzv3q/cumulonimbus.jpg',
+                    ),
                   ),
-                  buildCloudCard(
-                    name: 'Cumulus',
-                    imageUrl: 'https://i.postimg.cc/3R1qgBb0/cumulus.jpg',
-                  ),
-                ],
-              ),
-              SizedBox( height: 10,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  buildCloudCard(
-                    name: 'Altostratus',
-                    imageUrl: 'https://i.postimg.cc/Mfqh2ftV/Altostratus.jpg',
-                  ),
-                  buildCloudCard(
-                    name: 'Cirrocumulus',
-                    imageUrl: 'https://i.postimg.cc/MXwTKsFb/Cirrocumulus.jpg',
+                  Expanded(
+                    child: buildCloudCard(
+                      name: 'Stratocumulus',
+                      imageUrl: 'https://i.postimg.cc/KcHzk3CY/stratocumulus.jpg',
+                    ),
                   ),
                 ],
               ),
@@ -79,13 +59,53 @@ class ExploringCloudsPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildCloudCard(
-                    name: 'Cirrostratus',
-                    imageUrl: 'https://i.postimg.cc/m25tXQ3X/Cirrostratus.jpg',
+                  Expanded(
+                    child: buildCloudCard(
+                      name: 'Altocumulus',
+                      imageUrl: 'https://i.postimg.cc/Wz9QPnGc/altocumulus.jpg',
+                    ),
                   ),
-                  buildCloudCard(
-                    name: 'Nimbostratus',
-                    imageUrl: 'https://i.postimg.cc/prfm4CZc/Nimbostratus.jpg',
+                  Expanded(
+                    child: buildCloudCard(
+                      name: 'Cumulus',
+                      imageUrl: 'https://i.postimg.cc/3R1qgBb0/cumulus.jpg',
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox( height: 10,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                    child: buildCloudCard(
+                      name: 'Altostratus',
+                      imageUrl: 'https://i.postimg.cc/Mfqh2ftV/Altostratus.jpg',
+                    ),
+                  ),
+                  Expanded(
+                    child: buildCloudCard(
+                      name: 'Cirrocumulus',
+                      imageUrl: 'https://i.postimg.cc/MXwTKsFb/Cirrocumulus.jpg',
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox( height: 10,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                    child: buildCloudCard(
+                      name: 'Cirrostratus',
+                      imageUrl: 'https://i.postimg.cc/m25tXQ3X/Cirrostratus.jpg',
+                    ),
+                  ),
+                  Expanded(
+                    child: buildCloudCard(
+                      name: 'Nimbostratus',
+                      imageUrl: 'https://i.postimg.cc/prfm4CZc/Nimbostratus.jpg',
+                    ),
                   ),
                 ],
               ),

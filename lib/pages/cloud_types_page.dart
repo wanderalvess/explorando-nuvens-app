@@ -35,8 +35,7 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
             item['imageUrl'] ?? '',
             item['descriptionCloudType'] ?? '',
             item['nameCloudType'] ?? '',
-            item['titleCloudType']?? ''
-        );
+            item['titleCloudType'] ?? '');
       }).toList();
       setState(() {
         imageUrls = urls;
@@ -46,6 +45,8 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
 
   @override
   Widget build(BuildContext context) {
+    double widthScreen = MediaQuery.of(context).size.width;
+    double heightScreen = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: Text('Tipos de nuvens - ${widget.nameCloudType}'),
@@ -56,55 +57,61 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : CarouselSlider.builder(
-              itemCount: imageUrls.length,
-              itemBuilder: (BuildContext context, int index, int realIndex) {
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ImageDetailPage(
-                          imageUrl: imageUrls[index].getUrl,
-                          nameCloudType: imageUrls[index].getNameCloudType,
-                          titleCloudType: imageUrls[index].getTitleCloudType,
-                          descriptionCloudType: imageUrls[index].getDescriptionCloudType,
-                        ),
-                      ),
-                    );
-                  },
-                  child: Card(
-                    child: Column(
-                      children: [
-                        Container(
-                          width: 270,
-                          height: 270,
-                          child: Image.network(
-                            imageUrls[index].getUrl,
-                            fit: BoxFit.fitHeight,
+          : Center(
+              child: CarouselSlider.builder(
+                itemCount: imageUrls.length,
+                itemBuilder: (BuildContext context, int index, int realIndex) {
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ImageDetailPage(
+                            imageUrl: imageUrls[index].getUrl,
+                            nameCloudType: imageUrls[index].getNameCloudType,
+                            titleCloudType: imageUrls[index].getTitleCloudType,
+                            descriptionCloudType:
+                                imageUrls[index].getDescriptionCloudType,
                           ),
                         ),
-                        ListTile(
-                          title: Text(
-                            imageUrls[index].getTitleCloudType,
-                            style: const TextStyle(
-                              fontSize: 20,
+                      );
+                    },
+                    child: Card(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Center(
+                              child: Image.network(
+                                imageUrls[index].getUrl,
+                                fit: BoxFit.fitHeight,
+                              ),
                             ),
-                            textAlign: TextAlign.center,
                           ),
-                        ),
-                      ],
+                          ListTile(
+                            title: Text(
+                              imageUrls[index].getTitleCloudType,
+                              style: const TextStyle(
+                                fontSize: 20,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
-              options: CarouselOptions(
-                enableInfiniteScroll: true,
-                aspectRatio: 1.20,
-                enlargeCenterPage: true,
-                viewportFraction: 0.7,
-                enlargeStrategy: CenterPageEnlargeStrategy.zoom,
-                autoPlay: true,
+                  );
+                },
+                options: CarouselOptions(
+                  enableInfiniteScroll: true,
+                  aspectRatio: 1.20,
+                  height: heightScreen,
+                  enlargeCenterPage: true,
+                  viewportFraction: 0.7,
+                  enlargeStrategy: CenterPageEnlargeStrategy.zoom,
+                  autoPlay: true,
+                ),
               ),
             ),
     );
