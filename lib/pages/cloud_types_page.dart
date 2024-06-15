@@ -26,7 +26,7 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
 
   Future<void> fetchImageUrls(String nameCloudType) async {
     final response = await http.get(Uri.parse(
-        'https://back-app-clouds.onrender.com/api/image/images?category=$nameCloudType'));
+        'https://explorando-nuvens.onrender.com/api/images/clouds?category=$nameCloudType'));
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);

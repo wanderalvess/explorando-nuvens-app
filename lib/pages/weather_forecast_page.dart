@@ -26,8 +26,6 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
   String _tempMaxNextDay = '';
   String _conditionNextDay = ''; //imagem da condição do tempo,
   String _windSpeedyNextDay = ''; //velocidade vento
-
-
   String _rain = ''; //volume de chuva
   String _currently = ''; //dia ou noite
   String _windSpeedy = ''; //velocidade vento
@@ -48,13 +46,16 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
   }
 
   Future<void> _getWeatherForecast(String city) async {
-    final apikeyHG = '14193a96';
-    final apiUrlHG =
-        'https://api.hgbrasil.com/weather?key=$apikeyHG&city_name=$city';
-    final responseHG = await http.get(Uri.parse(apiUrlHG));
+    // final apikeyHG = '14193a96';
+    // final apiUrlHG =
+    //     'https://api.hgbrasil.com/weather?format=json-cors?key=$apikeyHG&city_name=$city';
+    // final responseHG = await http.get(Uri.parse(apiUrlHG));
 
-    if (responseHG.statusCode == 200) {
-      final jsonData = jsonDecode(responseHG.body);
+    final apiUrl = 'https://explorando-nuvens.onrender.com/api/weather?city=$city';
+    final response = await http.get(Uri.parse(apiUrl));
+
+    if (response.statusCode == 200) {
+      final jsonData = jsonDecode(response.body);
       setState(() {
         _city = jsonData['results']['city'];
         _temp = jsonData['results']['temp'].toString();
@@ -63,8 +64,6 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
         _weekday = jsonData['results']['forecast'][0]['weekday'];
         _date = jsonData['results']['forecast'][0]['date'].toString();
         _condition = jsonData['results']['forecast'][0]['condition'];
-
-
         _tempMaxNextDay = jsonData['results']['forecast'][1]['max'].toString();
         _tempMinNextDay = jsonData['results']['forecast'][1]['min'].toString();
         _weekdayNextDay = jsonData['results']['forecast'][1]['weekday'];
@@ -73,8 +72,6 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
         _cloudinessNextDay = jsonData['results']['forecast'][1]['cloudiness'].toString();
         _conditionNextDay = jsonData['results']['forecast'][1]['condition'];
         _windSpeedyNextDay = jsonData['results']['forecast'][1]['wind_speedy'];
-
-
         _humidity = jsonData['results']['humidity'].toString();
         _description = jsonData['results']['description'];
         _cloudiness = jsonData['results']['cloudiness'].toString();
@@ -96,7 +93,7 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
         _tempMin = '20';
         _windSpeedy = '8.8 km/h';
         _imageUrl =
-            'https://back-app-clouds.onrender.com/api/image/images/weather?name=cloudly_day';
+            'https://explorando-nuvens.onrender.com/api/images/weather?name=cloudly_day';
       });
     }
   }
@@ -104,9 +101,9 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
   Future<void> getImageWeatherUrls(
       String condition, String conditionNextDay) async {
     final response = await http.get(Uri.parse(
-        'https://back-app-clouds.onrender.com/api/image/images/weather?name=$condition'));
+        'https://explorando-nuvens.onrender.com/api/images/weather?name=$condition'));
     final responseNextDay = await http.get(Uri.parse(
-        'https://back-app-clouds.onrender.com/api/image/images/weather?name=$conditionNextDay'));
+        'https://explorando-nuvens.onrender.com/api/images/weather?name=$conditionNextDay'));
 
     if (response.statusCode == 200) {
       List<dynamic> data = json.decode(response.body);
@@ -435,8 +432,8 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
                                     ? CircularProgressIndicator()
                                     : Image.network(
                                         _imageUrl.isEmpty ? '' : _imageUrl,
-                                        height: 80,
-                                        width: 75,
+                                        height: 79,
+                                        width: 74,
                                       ),
                               ),
                             ],
