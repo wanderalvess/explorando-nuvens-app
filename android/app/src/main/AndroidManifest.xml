@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wanderalvess.clouds_identification_tab">
+    package="com.wanderalvess.explorando_clima_app">
    <application
         android:label="Explorando o Clima"
         android:name="${applicationName}"

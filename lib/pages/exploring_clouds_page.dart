@@ -1,4 +1,4 @@
-import 'package:clouds_identification_tab/pages/component/cloud_category_button.dart';
+import 'package:explorando_clima_app/pages/component/cloud_category_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

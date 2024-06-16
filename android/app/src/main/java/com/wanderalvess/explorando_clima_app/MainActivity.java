@@ -1,4 +1,4 @@
-package com.wanderalvess.clouds_identification_tab;
+package com.wanderalvess.explorando_clima_app;
 
 import io.flutter.embedding.android.FlutterActivity;
 

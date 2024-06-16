@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:clouds_identification_tab/pages/about_page.dart';
-import 'package:clouds_identification_tab/pages/brazilian_climates_page.dart';
-import 'package:clouds_identification_tab/pages/climate_phenomena_page.dart';
-import 'package:clouds_identification_tab/pages/climatic_factors_page.dart';
-import 'package:clouds_identification_tab/pages/exploring_clouds_page.dart';
-import 'package:clouds_identification_tab/pages/home_page.dart';
-import 'package:clouds_identification_tab/pages/privacy_page.dart';
-import 'package:clouds_identification_tab/pages/terms_page.dart';
-import 'package:clouds_identification_tab/pages/weather_climate_page.dart';
-import 'package:clouds_identification_tab/pages/weather_forecast_page.dart';
+import 'package:explorando_clima_app/pages/about_page.dart';
+import 'package:explorando_clima_app/pages/brazilian_climates_page.dart';
+import 'package:explorando_clima_app/pages/climate_phenomena_page.dart';
+import 'package:explorando_clima_app/pages/climatic_factors_page.dart';
+import 'package:explorando_clima_app/pages/exploring_clouds_page.dart';
+import 'package:explorando_clima_app/pages/home_page.dart';
+import 'package:explorando_clima_app/pages/privacy_page.dart';
+import 'package:explorando_clima_app/pages/terms_page.dart';
+import 'package:explorando_clima_app/pages/weather_climate_page.dart';
+import 'package:explorando_clima_app/pages/weather_forecast_page.dart';
 
 class DrawerMenu extends StatelessWidget {
   @override

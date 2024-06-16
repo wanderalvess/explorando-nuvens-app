@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:clouds_identification_tab/model/my_image.dart';
-import 'package:clouds_identification_tab/pages/image_detail_page.dart';
+import 'package:explorando_clima_app/model/my_image.dart';
+import 'package:explorando_clima_app/pages/image_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:carousel_slider/carousel_slider.dart';

@@ -1,4 +1,4 @@
-import 'package:clouds_identification_tab/pages/cloud_types_page.dart';
+import 'package:explorando_clima_app/pages/cloud_types_page.dart';
 import 'package:flutter/material.dart';
 
 class CloudCategoryButton extends StatelessWidget {
