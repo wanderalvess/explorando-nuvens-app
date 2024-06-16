@@ -29,7 +29,7 @@ class TermsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Antes de utilizar nossos serviços, pedimos que leia atentamente estes termos. Ao utilizar nosso aplicativo, você concorda com estes termos.',
+                  'Antes de utilizar nossos serviços, pedimos que leia atentamente estes termos. Ao utilizar nosso aplicativo ou Site WEB, você concorda com estes termos.',
                   textAlign: TextAlign.justify,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
@@ -46,94 +46,74 @@ class TermsPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '1. Cadastro e Informações Pessoais',
+                      '1. Uso do Aplicativo ou Site WEB',
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
                     Text(
-                      '1.1. Para utilizar os serviços deste aplicativo, é necessário se cadastrar fornecendo informações precisas e verdadeiras.',
+                      '1.1. Você concorda em utilizar este aplicativo ou versão web apenas para os fins previstos, ou seja, consultar dados referentes ao clima, '
+                      'consultar imagens dos tipos de nuvens, consultar previsões do tempo e ao que esse aplicativo é proposto e explicado na aba Sobre esse Aplicativo.',
                       textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 8),
                     Text(
-                      '1.2. As informações de cadastro obrigatórias incluem nome, endereço de e-mail e senha. Outras informações como data de aniversário, peso, altura, foto, sexo e qualquer outra informação pessoal são opcionais.',
-                      textAlign: TextAlign.justify,
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      '1.3. Ao fornecer suas informações pessoais, você concorda que elas sejam armazenadas e processadas de acordo com nossa Política de Privacidade.',
+                      '1.2. Você concorda em não utilizar este aplicativo ou versão web para qualquer atividade ilegal, fraudulenta, prejudicial ou não autorizada.',
                       textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 16),
                     Text(
-                      '2. Uso do Aplicativo',
+                      '2. Propriedade Intelectual',
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
                     Text(
-                      '2.1. Você concorda em utilizar este aplicativo apenas para os fins previstos, ou seja, registrar treinos de academia e acompanhar seu progresso pessoal.',
+                      '2.1. Todos os direitos autorais, marcas registradas e outros direitos de propriedade intelectual relacionados ao aplicativo ou versão web são '
+                      'de propriedade exclusiva do desenvolvedor.',
                       textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 8),
                     Text(
-                      '2.2. Você é responsável por manter a confidencialidade de sua senha e por todas as atividades que ocorram em sua conta.',
-                      textAlign: TextAlign.justify,
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      '2.3. Você concorda em não utilizar este aplicativo para qualquer atividade ilegal, fraudulenta, prejudicial ou não autorizada.',
+                      '2.2. Você concorda em não reproduzir, distribuir, modificar ou criar obras derivadas com base no conteúdo deste aplicativo ou versão web sem '
+                      'autorização prévia por escrito.',
                       textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 16),
                     Text(
-                      '3. Propriedade Intelectual',
+                      '3. Limitação de Responsabilidade',
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
                     Text(
-                      '3.1. Todos os direitos autorais, marcas registradas e outros direitos de propriedade intelectual relacionados ao aplicativo são de propriedade exclusiva do desenvolvedor.',
+                      '3.1. O uso deste aplicativo ou versão web é por sua conta e risco. Não nos responsabilizamos por quaisquer danos diretos, indiretos, incidentais, '
+                      'consequenciais ou especiais resultantes do uso ou da incapacidade de usar este aplicativo ou versão web.',
                       textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 8),
                     Text(
-                      '3.2. Você concorda em não reproduzir, distribuir, modificar ou criar obras derivadas com base no conteúdo deste aplicativo sem autorização prévia por escrito.',
-                      textAlign: TextAlign.justify,
+                      '3.2. Não garantimos que o aplicativo ou versão web esteja livre de erros ou que funcione sem interrupções.',
                     ),
                     SizedBox(height: 16),
                     Text(
-                      '4. Limitação de Responsabilidade',
+                      '4. Alterações nos Termos de Uso',
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
                     Text(
-                      '4.1. O uso deste aplicativo é por sua conta e risco. Não nos responsabilizamos por quaisquer danos diretos, indiretos, incidentais, consequenciais ou especiais resultantes do uso ou da incapacidade de usar este aplicativo.',
+                      '4.1. Reservamo-nos o direito de modificar estes termos a qualquer momento, mediante aviso prévio.',
                       textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 8),
                     Text(
-                      '4.2. Não garantimos que o aplicativo esteja livre de erros ou que funcione sem interrupções.',
-                    ),
-                    SizedBox(height: 16),
-                    Text(
-                      '5. Alterações nos Termos de Uso',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      '5.1. Reservamo-nos o direito de modificar estes termos a qualquer momento, mediante aviso prévio.',
-                      textAlign: TextAlign.justify,
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      '5.2. O uso continuado do aplicativo após a publicação das modificações constitui sua aceitação dos termos revisados.',
+                      '4.2. O uso continuado do aplicativo ou versão web após a publicação das modificações constitui sua aceitação dos termos revisados.',
                       textAlign: TextAlign.justify,
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Ao utilizar este aplicativo, você concorda com estes termos de uso. Se não concordar com estes termos, por favor, não utilize nosso aplicativo.',
+                      'Ao utilizar este aplicativo ou versão web, você concorda com estes termos de uso. Se não concordar com estes termos, por favor, não utilize nosso aplicativo ou versão web.',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
+                    SizedBox(height: 22),
                   ],
                 ),
               ),
