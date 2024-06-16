@@ -35,7 +35,7 @@ class AboutPage extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Essa plataforma é fruto e parte do meu projeto de trabalho de conclusão de curso e foi cuidadosamente desenvolvido com o objetivo de auxiliar você a entender e identificar uma ampla gama de aspectos climáticos.\n'
@@ -57,7 +57,7 @@ class AboutPage extends StatelessWidget {
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Para garantir que sua experiência com nosso aplicativo seja segura e confiável, é fundamental que você leia atentamente nossos termos de uso e políticas de privacidade.\n'
+                      'Para garantir que sua experiência com nosso aplicativo seja segura e confiável, é fundamental que você leia atentamente nossos termos de uso e políticas de privacidade. '
                       'Essas informações são importantes para compreender como seus dados serão utilizados e protegidos, além de esclarecer as responsabilidades e direitos tanto dos usuários quanto do desenvolvedor.\n'
                       'Assim, você pode desfrutar de todas as funcionalidades do aplicativo com a tranquilidade de saber que sua privacidade está resguardada.',
                       textAlign: TextAlign.justify,
@@ -65,10 +65,38 @@ class AboutPage extends StatelessWidget {
                     ),
                     SizedBox(height: 22),
                     Text(
-                      'Autor do Trabalho: Wanderson Alves Santos\n'
-                      'Projeto de Trabalho de Conclusão de Curso: Curso de Graduação em Geografia – Licenciatura, do Instituto de Estudos Socioambientais da Universidade Federal de Goiás - UFG\n'
-                      'Orientadora: Profa. Dra. Juliana Ramalho Barros.',
-                      textAlign: TextAlign.justify,
+                      'Projeto de Trabalho de Conclusão de Curso:',
+                      style:
+                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      'Curso de Graduação em Geografia – Licenciatura, do Instituto de Estudos Socioambientais da Universidade Federal de Goiás - UFG',
+                      style:
+                      TextStyle(fontSize: 18),
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      'Autor do Trabalho:',
+                      style:
+                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      'Wanderson Alves Santos',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      'Orientadora: ',
+                      style:
+                      TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 16),
+                    Text(
+                      'Profa. Dra. Juliana Ramalho Barros.',
+                      textAlign: TextAlign.start,
                       style: TextStyle(fontSize: 18),
                     ),
                     SizedBox(height: 22),

@@ -60,10 +60,9 @@ class HomePage extends StatelessWidget {
                     },
                     icon: Icon(Icons.explore),
                     label: const Text('Explorar Nuvens', style: TextStyle(fontSize: 16),),
-
                   ),
                 ),
-                SizedBox(width: 9),
+                SizedBox(width: 30, height: 40.0),
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
@@ -97,7 +96,7 @@ class HomePage extends StatelessWidget {
                     label: const Text('Climas do Brasil', style: TextStyle(fontSize: 16),),
                   ),
                 ),
-                SizedBox(width: 8),
+                SizedBox(width: 30, height: 40.0),
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
@@ -131,8 +130,7 @@ class HomePage extends StatelessWidget {
                     label: const Text('Fatores Climáticos', style: TextStyle(fontSize: 16)),
                   ),
                 ),
-                SizedBox(width: 8),
-
+                SizedBox(width: 30, height: 40.0),
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
@@ -166,7 +164,7 @@ class HomePage extends StatelessWidget {
                     label: const Text('Termos de uso', style: TextStyle(fontSize: 16),),
                   ),
                 ),
-                SizedBox(width: 8),
+                SizedBox(width: 30, height: 40.0),
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
