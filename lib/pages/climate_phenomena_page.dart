@@ -9,7 +9,9 @@ class ClimatePhenomenaPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Fenômenos climáticos'),
-        backgroundColor: Colors.indigo,
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.teal,
         foregroundColor: Colors.white,
       ),
       body: Column(

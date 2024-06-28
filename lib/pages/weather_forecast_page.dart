@@ -123,7 +123,7 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Cidade padrão cadastrada com sucesso'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.teal,
       ),
     );
   }
@@ -198,7 +198,7 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Previsão do tempo'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.teal,
         foregroundColor: Colors.white,
         centerTitle: true,
         actions: [
@@ -256,7 +256,7 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
                                       '$_date  |',
                                       style: const TextStyle(
                                         fontSize: 20,
-                                        color: Colors.indigo,
+                                        color: Colors.teal,
                                       ),
                                     ),
                                   ],
@@ -476,7 +476,7 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
                                     '$_dateNextDay  |',
                                     style: const TextStyle(
                                       fontSize: 20,
-                                      color: Colors.indigo,
+                                      color: Colors.teal,
                                     ),
                                   ),
                                 ],

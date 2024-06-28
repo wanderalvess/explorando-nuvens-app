@@ -8,8 +8,10 @@ class BrazilianClimatesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Climas Brasileiros'),
-        backgroundColor: Colors.indigo,
+        title: Text('Climas do Brasil'),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.teal,
         foregroundColor: Colors.white,
       ),
       body: Column(

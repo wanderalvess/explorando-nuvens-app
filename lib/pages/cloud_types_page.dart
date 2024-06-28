@@ -50,7 +50,9 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Tipos de nuvens - ${widget.nameCloudType}'),
-        backgroundColor: Colors.indigo,
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.teal,
         foregroundColor: Colors.white,
       ),
       body: imageUrls.isEmpty

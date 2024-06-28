@@ -8,7 +8,7 @@ class TermsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.teal,
         foregroundColor: Colors.white,
         title: const Text(
           'Termos de uso',

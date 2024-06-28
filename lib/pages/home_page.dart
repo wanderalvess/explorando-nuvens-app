@@ -16,7 +16,9 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Explorando o Clima'),
-        backgroundColor: Colors.indigo,
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.teal,
         foregroundColor: Colors.white,
       ),
       drawer: DrawerMenu(),
@@ -44,7 +46,6 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 48),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -59,7 +60,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     icon: Icon(Icons.explore),
-                    label: const Text('Explorar Nuvens', style: TextStyle(fontSize: 16),),
+                    label: const Text('Explorar Nuvens', style: TextStyle(fontSize: 16)),
                   ),
                 ),
                 SizedBox(width: 30, height: 40.0),
@@ -74,7 +75,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     icon: Icon(Icons.sunny),
-                    label: const Text('Previsão do Tempo', style: TextStyle(fontSize: 15),),
+                    label: const Text('Previsão do Tempo', style: TextStyle(fontSize: 15)),
                   ),
                 ),
               ],
@@ -93,6 +94,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     icon: Icon(Icons.electric_bolt_sharp),
+                    iconAlignment: IconAlignment.start,
                     label: const Text('Climas do Brasil', style: TextStyle(fontSize: 16),),
                   ),
                 ),
@@ -161,7 +163,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                     icon: Icon(Icons.newspaper_sharp),
-                    label: const Text('Termos de uso', style: TextStyle(fontSize: 16),),
+                    label: const Text('Termos de uso', style: TextStyle(fontSize: 16),selectionColor: Colors.black,),
                   ),
                 ),
                 SizedBox(width: 30, height: 40.0),

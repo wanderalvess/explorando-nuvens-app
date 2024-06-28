@@ -3,12 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
 class AboutPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sobre'),
-        backgroundColor: Colors.indigo,
+        title: const Text(
+            'Sobre',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        ),
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.teal,
         foregroundColor: Colors.white,
       ),
       body: const Column(
@@ -17,6 +23,7 @@ class AboutPage extends StatelessWidget {
             padding: EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
                   'Bem-vindo ao Explorando o Clima!',
@@ -95,7 +102,7 @@ class AboutPage extends StatelessWidget {
                     ),
                     SizedBox(height: 16),
                     Text(
-                      'Profa. Dra. Juliana Ramalho Barros.',
+                      'Profa. Dra. Juliana Ramalho Barros',
                       textAlign: TextAlign.start,
                       style: TextStyle(fontSize: 18),
                     ),
