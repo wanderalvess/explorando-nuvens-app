@@ -18,7 +18,7 @@ class TermsPage extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
-            icon: Icon(Icons.arrow_back)),
+            icon: const Icon(Icons.arrow_back)),
       ),
       body: const Column(
         children: [

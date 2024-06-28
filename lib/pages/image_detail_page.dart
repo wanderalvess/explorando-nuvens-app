@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ImageDetailPage extends StatelessWidget {
+
   final String imageUrl;
   final String nameCloudType;
   final String titleCloudType;
   final String descriptionCloudType;
 
-  ImageDetailPage({
+  const ImageDetailPage({
     super.key,
     required this.imageUrl,
     required this.nameCloudType,
@@ -18,7 +19,7 @@ class ImageDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detalhes'),
+        title: Text(nameCloudType),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.teal,
