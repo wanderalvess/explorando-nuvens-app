@@ -20,14 +20,6 @@ class ExploringTypeCloudsPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text(
-                'Descubra a fascinante diversidade das nuvens! Explore suas diferentes categorias e aprenda como cada tipo contribui para o nosso clima.',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 4),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

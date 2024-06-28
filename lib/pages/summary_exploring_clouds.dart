@@ -11,7 +11,7 @@ class SummaryExploringCloudsPage extends StatelessWidget {
     double heightScreen = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Resumo sobre as Nuvens'),
+        title: const Text('Resumo sobre Nuvens'),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.teal,
@@ -40,12 +40,12 @@ class SummaryExploringCloudsPage extends StatelessWidget {
             child: SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.network(imageUrl, height:heightScreen, width: widthScreen), // Adicionando a imagem
+                    Image.network(imageUrl),
                     const SizedBox(height: 10),
                     const Text(
                       'As nuvens são uma coleção visível de minúsculas gotas de água ou cristais de gelo que se encontram suspensos na atmosfera acima da superfície da Terra. Elas desempenham um papel crucial no sistema climático, ajudando a regular a temperatura do planeta e a distribuir a água na forma de precipitação.',
