@@ -1,5 +1,5 @@
 import 'package:explorando_clima_app/model/stay.dart';
-import 'package:explorando_clima_app/pages/new_home_page.dart';
+import 'package:explorando_clima_app/pages/newPages/model_home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,5 @@
 
+import 'package:explorando_clima_app/data/data.dart';
 import 'package:explorando_clima_app/model/place.dart';
 import 'package:explorando_clima_app/pages/component/circular_icon_button.dart';
 import 'package:explorando_clima_app/pages/component/my_divider.dart';
@@ -6,7 +7,7 @@ import 'package:explorando_clima_app/pages/component/page_view_with_indicators.d
 import 'package:explorando_clima_app/pages/component/rating_row.dart';
 import 'package:explorando_clima_app/pages/enum/indicator_type.dart';
 import 'package:explorando_clima_app/pages/newPages/place_detail_list_tile.dart';
-import 'package:explorando_clima_app/pages/new_home_page.dart';
+import 'package:explorando_clima_app/pages/newPages/model_home_page.dart';
 import 'package:explorando_clima_app/util/intersperse.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

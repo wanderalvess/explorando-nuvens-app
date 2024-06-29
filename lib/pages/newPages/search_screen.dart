@@ -2,7 +2,7 @@
 import 'package:explorando_clima_app/data/data.dart';
 import 'package:explorando_clima_app/pages/component/app_bar_back_button.dart';
 import 'package:explorando_clima_app/pages/component/row_tile_with_image.dart';
-import 'package:explorando_clima_app/pages/new_home_page.dart';
+import 'package:explorando_clima_app/pages/newPages/model_home_page.dart';
 import 'package:explorando_clima_app/util/intersperse.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

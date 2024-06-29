@@ -1,6 +1,6 @@
 import 'package:explorando_clima_app/model/profile.dart';
 import 'package:explorando_clima_app/pages/newPages/profile_list_tile.dart';
-import 'package:explorando_clima_app/pages/new_home_page.dart';
+import 'package:explorando_clima_app/pages/newPages/model_home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

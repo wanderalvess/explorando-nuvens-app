@@ -1,10 +1,8 @@
 import 'dart:convert';
-
 import 'package:explorando_clima_app/model/my_image.dart';
 import 'package:explorando_clima_app/pages/image_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:carousel_slider/carousel_slider.dart';
 
 class CloudTypesPage extends StatefulWidget {
   final String nameCloudType;
@@ -45,8 +43,6 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
 
   @override
   Widget build(BuildContext context) {
-    double widthScreen = MediaQuery.of(context).size.width;
-    double heightScreen = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         title: Text('Tipos de nuvens - ${widget.nameCloudType}'),
@@ -59,63 +55,98 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
           ? const Center(
               child: CircularProgressIndicator(),
             )
-          : Center(
-              child: CarouselSlider.builder(
-                itemCount: imageUrls.length,
-                itemBuilder: (BuildContext context, int index, int realIndex) {
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ImageDetailPage(
-                            imageUrl: imageUrls[index].getUrl,
-                            nameCloudType: imageUrls[index].getNameCloudType,
-                            titleCloudType: imageUrls[index].getTitleCloudType,
-                            descriptionCloudType:
-                                imageUrls[index].getDescriptionCloudType,
-                          ),
-                        ),
-                      );
-                    },
-                    child: Card(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Center(
-                              child: Image.network(
-                                imageUrls[index].getUrl,
-                                fit: BoxFit.fitHeight,
-                              ),
-                            ),
-                          ),
-                          ListTile(
-                            title: Text(
-                              imageUrls[index].getTitleCloudType,
-                              style: const TextStyle(
-                                fontSize: 20,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
+          : Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  if (constraints.maxWidth > 600) {
+                    // Layout para telas maiores
+                    return GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 20,
+                        mainAxisSpacing: 10,
+                        childAspectRatio: 3 / 2,
                       ),
-                    ),
-                  );
+                      itemCount: imageUrls.length,
+                      itemBuilder: (context, index) {
+                        return buildCloudCard(context, index);
+                      },
+                    );
+                  } else {
+                    // Layout para telas menores
+                    return ListView.builder(
+                      itemCount: imageUrls.length,
+                      itemBuilder: (context, index) {
+                        return buildCloudCard(context, index);
+                      },
+                    );
+                  }
                 },
-                options: CarouselOptions(
-                  enableInfiniteScroll: true,
-                  aspectRatio: 1.20,
-                  height: heightScreen,
-                  enlargeCenterPage: true,
-                  viewportFraction: 0.7,
-                  enlargeStrategy: CenterPageEnlargeStrategy.zoom,
-                  autoPlay: true,
-                ),
               ),
             ),
+    );
+  }
+
+  Widget buildCloudCard(BuildContext context, int index) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ImageDetailPage(
+              imageUrl: imageUrls[index].getUrl,
+              nameCloudType: imageUrls[index].getNameCloudType,
+              titleCloudType: imageUrls[index].getTitleCloudType,
+              descriptionCloudType: imageUrls[index].getDescriptionCloudType,
+            ),
+          ),
+        );
+      },
+      child: Card(
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(15),
+                topRight: Radius.circular(15),
+              ),
+              child: Image.network(
+                imageUrls[index].getUrl,
+                height: 200,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    imageUrls[index].getTitleCloudType,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    imageUrls[index].getDescriptionCloudType,
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

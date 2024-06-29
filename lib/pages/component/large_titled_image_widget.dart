@@ -1,44 +1,42 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:explorando_clima_app/pages/cloud_types_page.dart';
 
 class LargeTitledImageWidget extends StatelessWidget {
-  const LargeTitledImageWidget(
-      {required this.text, this.subtitle, required this.imageUrl, Key? key})
-      : super(key: key);
-
   final String text;
-  final String? subtitle;
   final String imageUrl;
+
+  const LargeTitledImageWidget({
+    Key? key,
+    required this.text,
+    required this.imageUrl,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Flexible(
-          child: AspectRatio(
-            aspectRatio: 1,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.network(
-                imageUrl,
-                fit: BoxFit.cover,
-              ),
-            ),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CloudTypesPage(nameCloudType: text),
           ),
-        ),
-        const SizedBox(
-          height: 12,
-        ),
-        Text(
-          text,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
+        );
+      },
+      child: Column(
+        children: [
+          Image.network(
+            imageUrl,
+            fit: BoxFit.cover,
+            width: 160,
+            height: 160,
           ),
-        ),
-        const SizedBox(height: 4),
-        Text(subtitle ?? ''),
-      ],
+          const SizedBox(height: 8),
+          Text(
+            text,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
     );
   }
 }

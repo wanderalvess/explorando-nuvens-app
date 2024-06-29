@@ -1,11 +1,10 @@
-import 'package:explorando_clima_app/pages/home_page.dart';
-import 'package:explorando_clima_app/pages/new_home_page.dart';
+import 'package:explorando_clima_app/pages/NewNewHomePage/new_new_home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: HomePage(),
+    home: NewHomePage(),
   ));
 }
 

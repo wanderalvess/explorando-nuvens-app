@@ -1,5 +1,6 @@
+import 'package:explorando_clima_app/data/data.dart';
 import 'package:explorando_clima_app/pages/newPages/search_screen.dart';
-import 'package:explorando_clima_app/pages/new_home_page.dart';
+import 'package:explorando_clima_app/pages/newPages/model_home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -82,7 +83,7 @@ class _CustomSliverAppBarState extends State<CustomSliverAppBar> {
                 alignment: Alignment.center,
                 children: [
                   Image.network(
-                    cabinImageUrl,
+                    imageHome,
                   ),
                   const Positioned(
                     left: 0,

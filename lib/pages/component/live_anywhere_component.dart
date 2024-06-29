@@ -1,7 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:explorando_clima_app/pages/component/large_titled_image_list_view.dart';
 import 'package:explorando_clima_app/pages/component/large_titled_image_widget.dart';
-import 'package:explorando_clima_app/pages/new_home_page.dart';
-import 'package:flutter/cupertino.dart';
 
 class LiveAnywhereComponent extends StatelessWidget {
   const LiveAnywhereComponent({Key? key}) : super(key: key);
@@ -10,22 +9,50 @@ class LiveAnywhereComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     const liveAnywhereWidgets = [
       LargeTitledImageWidget(
-        text: 'Entire homes',
-        imageUrl: modernHouseImageUrl,
+        text: 'Cirrus',
+        imageUrl: 'https://i.postimg.cc/5tLdF8V8/cirrus1.jpg',
       ),
       LargeTitledImageWidget(
-        text: 'Unique stays',
-        imageUrl: uniqueLakeCabinImageUrl,
+        text: 'Cumulus',
+        imageUrl: 'https://i.postimg.cc/3R1qgBb0/cumulus.jpg',
       ),
       LargeTitledImageWidget(
-        text: 'Cabins and cottages',
-        imageUrl: cabinImageUrl,
+        text: 'Stratus',
+        imageUrl: 'https://i.postimg.cc/y6rQskqK/stratus-opacus.jpg',
       ),
       LargeTitledImageWidget(
-        text: 'Pets allowed',
-        imageUrl: dogBeingLovedImageUrl,
-      )
+        text: 'Cirrostratus',
+        imageUrl: 'https://i.postimg.cc/m25tXQ3X/Cirrostratus.jpg',
+      ),
+      LargeTitledImageWidget(
+        text: 'Cumulonimbus',
+        imageUrl: 'https://i.postimg.cc/Bbwwzv3q/cumulonimbus.jpg',
+      ),
+      LargeTitledImageWidget(
+        text: 'Stratocumulus',
+        imageUrl: 'https://i.postimg.cc/KcHzk3CY/stratocumulus.jpg',
+      ),
+      LargeTitledImageWidget(
+        text: 'Altocumulus',
+        imageUrl: 'https://i.postimg.cc/Wz9QPnGc/altocumulus.jpg',
+      ),
+      LargeTitledImageWidget(
+        text: 'Altostratus',
+        imageUrl: 'https://i.postimg.cc/Mfqh2ftV/Altostratus.jpg',
+      ),
+      LargeTitledImageWidget(
+        text: 'Cumulonimbus',
+        imageUrl: 'https://i.postimg.cc/Bbwwzv3q/cumulonimbus.jpg',
+      ),
+      LargeTitledImageWidget(
+        text: 'Cirrocumulus',
+        imageUrl: 'https://i.postimg.cc/MXwTKsFb/Cirrocumulus.jpg',
+      ),
+      LargeTitledImageWidget(
+        text: 'Nimbostratus',
+        imageUrl: 'https://i.postimg.cc/prfm4CZc/Nimbostratus.jpg',
+      ),
     ];
-    return const LargeTitledImageListView(widgets: liveAnywhereWidgets);
+    return LargeTitledImageListView(widgets: liveAnywhereWidgets);
   }
 }

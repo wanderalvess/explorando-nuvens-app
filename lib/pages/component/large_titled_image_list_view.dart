@@ -1,10 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:explorando_clima_app/pages/component/large_titled_image_widget.dart';
-import 'package:explorando_clima_app/pages/new_home_page.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:explorando_clima_app/pages/newPages/model_home_page.dart';
 
 class LargeTitledImageListView extends StatelessWidget {
-  const LargeTitledImageListView({required this.widgets, Key? key})
-      : super(key: key);
+  const LargeTitledImageListView({required this.widgets, Key? key}) : super(key: key);
   final List<LargeTitledImageWidget> widgets;
 
   @override

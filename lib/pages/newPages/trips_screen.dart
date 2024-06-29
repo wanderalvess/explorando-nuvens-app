@@ -4,7 +4,7 @@ import 'package:explorando_clima_app/pages/component/screen_header_text.dart';
 import 'package:explorando_clima_app/pages/component/simple_text_tabs.dart';
 import 'package:explorando_clima_app/pages/newPages/place_screen.dart';
 import 'package:explorando_clima_app/pages/newPages/stay_card_widget.dart';
-import 'package:explorando_clima_app/pages/new_home_page.dart';
+import 'package:explorando_clima_app/pages/newPages/model_home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
