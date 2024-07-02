@@ -15,6 +15,7 @@ class CloudTypesPage extends StatefulWidget {
 
 class _CloudTypesPageState extends State<CloudTypesPage> {
   List<MyImage> imageUrls = [];
+  late double tamanhoTela;
 
   @override
   void initState() {
@@ -59,15 +60,25 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
               padding: const EdgeInsets.all(8.0),
               child: LayoutBuilder(
                 builder: (context, constraints) {
-                  if (constraints.maxWidth > 600) {
-                    // Layout para telas maiores
+                  print(constraints.maxWidth);
+
+                  // Layout para telas maiores
+                  if (constraints.maxWidth <= 600) {
+                    return ListView.builder(
+                      itemCount: imageUrls.length,
+                      itemBuilder: (context, index) {
+                        return buildCloudCard(context, index);
+                      },
+                    );
+                  } else if (constraints.maxWidth >= 601 &&
+                      constraints.maxWidth <= 999) {
                     return GridView.builder(
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         crossAxisSpacing: 20,
                         mainAxisSpacing: 10,
-                        childAspectRatio: 3 / 2,
+                        childAspectRatio: 2 / 2,
                       ),
                       itemCount: imageUrls.length,
                       itemBuilder: (context, index) {
@@ -75,8 +86,14 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
                       },
                     );
                   } else {
-                    // Layout para telas menores
-                    return ListView.builder(
+                    return GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 20,
+                        mainAxisSpacing: 10,
+                        childAspectRatio: 2 / 2,
+                      ),
                       itemCount: imageUrls.length,
                       itemBuilder: (context, index) {
                         return buildCloudCard(context, index);
