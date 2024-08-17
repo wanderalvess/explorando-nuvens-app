@@ -5,7 +5,7 @@ import 'package:explorando_clima_app/pages/brazilian_climates_page.dart';
 import 'package:explorando_clima_app/pages/climate_phenomena_page.dart';
 import 'package:explorando_clima_app/pages/climatic_factors_page.dart';
 import 'package:explorando_clima_app/pages/exploring_clouds_page.dart';
-import 'package:explorando_clima_app/pages/newPages/explore_climate.dart';
+import 'package:explorando_clima_app/pages/newPages/explore_home.dart';
 import 'package:explorando_clima_app/pages/newPages/profile_screen.dart';
 import 'package:explorando_clima_app/pages/privacy_page.dart';
 import 'package:explorando_clima_app/pages/terms_page.dart';
@@ -63,39 +63,38 @@ class _NewHomePageState extends State<NewHomePage> {
               label: 'Tipos de Nuvens',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.all_inclusive),
-              label: 'Trips',
+              icon: Icon(Icons.sunny),
+              label: 'Previsão do Tempo',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_outlined),
-              label: 'Profile',
+              icon: Icon(Icons.terrain),
+              label: 'Explorando o Clima',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.info_outline),
+              label: 'Sobre',
             ),
           ],
         ),
         body: [
-          const ExploreClimate(),
-          HomeSectionPage(
-            title: 'Tipos de Nuvens',
-            buttons: [
-              buildButton(context, 'Explorar Nuvens', Icons.explore, ExploringCloudsPage()),
-              buildButton(context, 'Previsão do Tempo', Icons.sunny, WeatherForecastPage()),
-            ],
-          ),
+          const ExploreHome(),
+          const ExploringCloudsPage(),
+          WeatherForecastPage(),
           HomeSectionPage(
             title: 'Explorando o Clima',
-            buttons: [
-              buildButton(context, 'Climas do Brasil', Icons.electric_bolt_sharp, BrazilianClimatesPage()),
-              buildButton(context, 'Tempo e Clima', Icons.cloud, WeatherClimatePage()),
-              buildButton(context, 'Fatores Climáticos', Icons.beach_access_rounded, ClimaticFactorsPage()),
-              buildButton(context, 'Fenômenos Climáticos', Icons.cyclone, ClimatePhenomenaPage()),
+            cards: [
+              buildCard(context, 'Climas do Brasil', Icons.electric_bolt_sharp, BrazilianClimatesPage()),
+              buildCard(context, 'Tempo e Clima', Icons.cloud, WeatherClimatePage()),
+              buildCard(context, 'Fatores Climáticos', Icons.beach_access_rounded, ClimaticFactorsPage()),
+              buildCard(context, 'Fenômenos Climáticos', Icons.cyclone, ClimatePhenomenaPage()),
             ],
           ),
           HomeSectionPage(
             title: 'Sobre',
-            buttons: [
-              buildButton(context, 'Termos de Uso', Icons.newspaper_sharp, TermsPage()),
-              buildButton(context, 'Privacidade', Icons.account_balance_wallet_rounded, PrivacyPage()),
-              buildButton(context, 'Sobre esse APP', Icons.account_balance_outlined, AboutPage()),
+            cards: [
+              buildCard(context, 'Termos de Uso', Icons.newspaper_sharp, TermsPage()),
+              buildCard(context, 'Privacidade', Icons.account_balance_wallet_rounded, PrivacyPage()),
+              buildCard(context, 'Sobre esse APP', Icons.account_balance_outlined, AboutPage()),
             ],
           ),
           const ProfileScreen(profile: zachProfile),

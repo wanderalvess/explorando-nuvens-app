@@ -7,7 +7,7 @@ import 'package:explorando_clima_app/model/stay.dart';
 import 'package:explorando_clima_app/pages/component/row_tile_with_image.dart';
 import 'package:explorando_clima_app/pages/enum/indicator_type.dart';
 import 'package:explorando_clima_app/pages/enum/place_type.dart';
-import 'package:explorando_clima_app/pages/newPages/explore_climate.dart';
+import 'package:explorando_clima_app/pages/newPages/explore_home.dart';
 import 'package:explorando_clima_app/pages/newPages/inbox_screen.dart';
 import 'package:explorando_clima_app/pages/newPages/profile_screen.dart';
 import 'package:explorando_clima_app/pages/newPages/saved_screen.dart';

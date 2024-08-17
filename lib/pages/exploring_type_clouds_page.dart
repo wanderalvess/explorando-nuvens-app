@@ -1,4 +1,4 @@
-import 'package:explorando_clima_app/pages/component/cloud_category_button.dart';
+import 'package:explorando_clima_app/pages/component/large_titled_image_widget.dart';
 import 'package:flutter/material.dart';
 
 class ExploringTypeCloudsPage extends StatelessWidget {
@@ -15,120 +15,149 @@ class ExploringTypeCloudsPage extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(22.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Expanded(
-                    child: buildCloudCard(
-                      name: 'Cirrus',
-                      imageUrl: 'https://i.postimg.cc/5tLdF8V8/cirrus1.jpg',
-                    ),
-                  ),
-                  Expanded(
-                    child: buildCloudCard(
-                      name: 'Stratus',
-                      imageUrl: 'https://i.postimg.cc/y6rQskqK/stratus-opacus.jpg',
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox( height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Expanded(
-                    child: buildCloudCard(
-                      name: 'Cumulonimbus',
-                      imageUrl: 'https://i.postimg.cc/Bbwwzv3q/cumulonimbus.jpg',
-                    ),
-                  ),
-                  Expanded(
-                    child: buildCloudCard(
-                      name: 'Stratocumulus',
-                      imageUrl: 'https://i.postimg.cc/KcHzk3CY/stratocumulus.jpg',
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox( height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Expanded(
-                    child: buildCloudCard(
-                      name: 'Altocumulus',
-                      imageUrl: 'https://i.postimg.cc/Wz9QPnGc/altocumulus.jpg',
-                    ),
-                  ),
-                  Expanded(
-                    child: buildCloudCard(
-                      name: 'Cumulus',
-                      imageUrl: 'https://i.postimg.cc/3R1qgBb0/cumulus.jpg',
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox( height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Expanded(
-                    child: buildCloudCard(
-                      name: 'Altostratus',
-                      imageUrl: 'https://i.postimg.cc/Mfqh2ftV/Altostratus.jpg',
-                    ),
-                  ),
-                  Expanded(
-                    child: buildCloudCard(
-                      name: 'Cirrocumulus',
-                      imageUrl: 'https://i.postimg.cc/MXwTKsFb/Cirrocumulus.jpg',
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox( height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Expanded(
-                    child: buildCloudCard(
-                      name: 'Cirrostratus',
-                      imageUrl: 'https://i.postimg.cc/m25tXQ3X/Cirrostratus.jpg',
-                    ),
-                  ),
-                  Expanded(
-                    child: buildCloudCard(
-                      name: 'Nimbostratus',
-                      imageUrl: 'https://i.postimg.cc/prfm4CZc/Nimbostratus.jpg',
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+        padding: const EdgeInsets.all(16.0),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            if (constraints.maxWidth <= 600) {
+              return ListView.builder(
+                itemCount: cloudData.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: buildCloudCard(context, index),
+                  );
+                },
+              );
+            } else if (constraints.maxWidth >= 601 && constraints.maxWidth <= 999) {
+              return GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 3 / 4,
+                ),
+                itemCount: cloudData.length,
+                itemBuilder: (context, index) {
+                  return buildCloudCard(context, index);
+                },
+              );
+            } else {
+              return GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 3 / 4,
+                ),
+                itemCount: cloudData.length,
+                itemBuilder: (context, index) {
+                  return buildCloudCard(context, index);
+                },
+              );
+            }
+          },
         ),
       ),
     );
   }
 
-  Widget buildCloudCard({required String name, required String imageUrl}) {
-    return Card(
-      elevation: 2,
+  Widget buildCloudCard(BuildContext context, int index) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LargeTitledImageWidget(
+              imageUrl: cloudData[index]['imageUrl']!,
+              text: cloudData[index]['name']!,
+              screen: 'cloudTypes',
+            ),
+          ),
+        );
+      },
+      child: Card(
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        elevation: 5,
         shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(6),
+          borderRadius: BorderRadius.circular(15),
         ),
-      child: Padding(
-        padding: const EdgeInsets.all(4),
-        child: CloudCategoryButton(
-          nameCloudType: name,
-          categoryImage: imageUrl,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(15),
+                topRight: Radius.circular(15),
+              ),
+              child: Image.network(
+                cloudData[index]['imageUrl']!,
+                height: 200,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    cloudData[index]['name']!,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 }
+
+const List<Map<String, String>> cloudData = [
+  {
+    'name': 'Cirrus',
+    'imageUrl': 'https://i.postimg.cc/5tLdF8V8/cirrus1.jpg',
+  },
+  {
+    'name': 'Stratus',
+    'imageUrl': 'https://i.postimg.cc/y6rQskqK/stratus-opacus.jpg',
+  },
+  {
+    'name': 'Cumulonimbus',
+    'imageUrl': 'https://i.postimg.cc/Bbwwzv3q/cumulonimbus.jpg',
+  },
+  {
+    'name': 'Stratocumulus',
+    'imageUrl': 'https://i.postimg.cc/KcHzk3CY/stratocumulus.jpg',
+  },
+  {
+    'name': 'Altocumulus',
+    'imageUrl': 'https://i.postimg.cc/Wz9QPnGc/altocumulus.jpg',
+  },
+  {
+    'name': 'Cumulus',
+    'imageUrl': 'https://i.postimg.cc/3R1qgBb0/cumulus.jpg',
+  },
+  {
+    'name': 'Altostratus',
+    'imageUrl': 'https://i.postimg.cc/Mfqh2ftV/Altostratus.jpg',
+  },
+  {
+    'name': 'Cirrocumulus',
+    'imageUrl': 'https://i.postimg.cc/MXwTKsFb/Cirrocumulus.jpg',
+  },
+  {
+    'name': 'Cirrostratus',
+    'imageUrl': 'https://i.postimg.cc/m25tXQ3X/Cirrostratus.jpg',
+  },
+  {
+    'name': 'Nimbostratus',
+    'imageUrl': 'https://i.postimg.cc/prfm4CZc/Nimbostratus.jpg',
+  },
+];

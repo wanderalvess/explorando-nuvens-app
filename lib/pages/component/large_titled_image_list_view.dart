@@ -3,13 +3,13 @@ import 'package:explorando_clima_app/pages/component/large_titled_image_widget.d
 import 'package:explorando_clima_app/pages/newPages/model_home_page.dart';
 
 class LargeTitledImageListView extends StatelessWidget {
-  const LargeTitledImageListView({required this.widgets, Key? key}) : super(key: key);
+  const LargeTitledImageListView({required this.widgets, super.key});
   final List<LargeTitledImageWidget> widgets;
 
   @override
   Widget build(BuildContext context) {
     return LimitedBox(
-      maxHeight: 360,
+      maxHeight: 260,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: widgets.length,

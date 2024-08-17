@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BrazilianClimatesPage extends StatelessWidget {
-  final String imageUrl = 'https://s1.static.brasilescola.uol.com.br/be/2021/10/mapa-climas-brasil.jpg';
+  final String imageUrl = 'https://i.postimg.cc/NjyJyTb5/mapa-climas-brasil.webp';
 
   const BrazilianClimatesPage({super.key});
 

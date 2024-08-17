@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class WeatherClimatePage extends StatelessWidget {
-  final String imageUrl = 'https://s3.static.brasilescola.uol.com.br/be/2022/09/paisagem-ceu-tempestuoso.jpg';
+  final String imageUrl = 'https://i.postimg.cc/T3ZknwHQ/paisagem-ceu-tempestuoso.webp';
 
   const WeatherClimatePage({super.key});
 

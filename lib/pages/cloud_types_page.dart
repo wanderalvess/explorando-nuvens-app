@@ -15,7 +15,6 @@ class CloudTypesPage extends StatefulWidget {
 
 class _CloudTypesPageState extends State<CloudTypesPage> {
   List<MyImage> imageUrls = [];
-  late double tamanhoTela;
 
   @override
   void initState() {
@@ -60,7 +59,6 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
               padding: const EdgeInsets.all(8.0),
               child: LayoutBuilder(
                 builder: (context, constraints) {
-                  print(constraints.maxWidth);
 
                   // Layout para telas maiores
                   if (constraints.maxWidth <= 600) {

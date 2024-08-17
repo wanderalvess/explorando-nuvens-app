@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ClimatePhenomenaPage extends StatelessWidget {
-  final String imageUrl = 'https://s5.static.brasilescola.uol.com.br/be/2022/09/formacao-furacao.jpg';
+  final String imageUrl = 'https://i.postimg.cc/5tLsgVhJ/formacao-furacao.webp';
 
   @override
   Widget build(BuildContext context) {

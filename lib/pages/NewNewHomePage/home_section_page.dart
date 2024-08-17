@@ -1,42 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:explorando_clima_app/pages/brazilian_climates_page.dart';
-import 'package:explorando_clima_app/pages/climate_phenomena_page.dart';
-import 'package:explorando_clima_app/pages/climatic_factors_page.dart';
-import 'package:explorando_clima_app/pages/exploring_clouds_page.dart';
-import 'package:explorando_clima_app/pages/privacy_page.dart';
-import 'package:explorando_clima_app/pages/terms_page.dart';
-import 'package:explorando_clima_app/pages/weather_climate_page.dart';
-import 'package:explorando_clima_app/pages/weather_forecast_page.dart';
-import 'package:explorando_clima_app/pages/about_page.dart';
 
 class HomeSectionPage extends StatelessWidget {
   final String title;
-  final List<Widget> buttons;
+  final List<Widget> cards;
 
-  const HomeSectionPage({Key? key, required this.title, required this.buttons})
+  const HomeSectionPage({Key? key, required this.title, required this.cards})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title, style: TextStyle(color: Colors.white)),
         centerTitle: true,
         backgroundColor: Colors.teal,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          children: buttons,
+          children: cards,
         ),
       ),
     );
   }
 }
 
-Widget buildButton(BuildContext context, String text, IconData icon, Widget page) {
-  return ElevatedButton.icon(
-    onPressed: () {
+
+Widget buildCard(BuildContext context, String text, IconData icon, Widget page) {
+  return GestureDetector(
+    onTap: () {
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -44,7 +36,27 @@ Widget buildButton(BuildContext context, String text, IconData icon, Widget page
         ),
       );
     },
-    icon: Icon(icon, color: Colors.teal),
-    label: Text(text, style: TextStyle(fontSize: 16, color: Colors.black)),
+    child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      elevation: 5,
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      child: Padding(
+        padding: const EdgeInsets.all(15),
+        child: Row(
+          children: [
+            Icon(icon, color: Colors.teal, size: 40),
+            const SizedBox(width: 20),
+            Expanded(
+              child: Text(
+                text,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
   );
 }
