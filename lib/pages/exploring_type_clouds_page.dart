@@ -1,3 +1,4 @@
+import 'package:explorando_clima_app/pages/cloud_types_page.dart';
 import 'package:explorando_clima_app/pages/component/large_titled_image_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class ExploringTypeCloudsPage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: LayoutBuilder(
           builder: (context, constraints) {
-            if (constraints.maxWidth <= 600) {
+            if (constraints.maxWidth <= 669) {
               return ListView.builder(
                 itemCount: cloudData.length,
                 itemBuilder: (context, index) {
@@ -28,13 +29,13 @@ class ExploringTypeCloudsPage extends StatelessWidget {
                   );
                 },
               );
-            } else if (constraints.maxWidth >= 601 && constraints.maxWidth <= 999) {
+            } else if (constraints.maxWidth >=  670 && constraints.maxWidth <= 1130) {
               return GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
-                  childAspectRatio: 3 / 4,
+                  childAspectRatio: BorderSide.strokeAlignOutside,
                 ),
                 itemCount: cloudData.length,
                 itemBuilder: (context, index) {
@@ -47,7 +48,7 @@ class ExploringTypeCloudsPage extends StatelessWidget {
                   crossAxisCount: 3,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
-                  childAspectRatio: 3 / 4,
+                  childAspectRatio: BorderSide.strokeAlignOutside,
                 ),
                 itemCount: cloudData.length,
                 itemBuilder: (context, index) {
@@ -67,10 +68,8 @@ class ExploringTypeCloudsPage extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => LargeTitledImageWidget(
-              imageUrl: cloudData[index]['imageUrl']!,
-              text: cloudData[index]['name']!,
-              screen: 'cloudTypes',
+            builder: (context) => CloudTypesPage(
+              nameCloudType: cloudData[index]['name']!,
             ),
           ),
         );
@@ -91,7 +90,7 @@ class ExploringTypeCloudsPage extends StatelessWidget {
               ),
               child: Image.network(
                 cloudData[index]['imageUrl']!,
-                height: 200,
+                height: 350,
                 fit: BoxFit.cover,
               ),
             ),

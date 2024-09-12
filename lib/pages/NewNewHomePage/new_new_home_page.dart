@@ -83,8 +83,8 @@ class _NewHomePageState extends State<NewHomePage> {
           HomeSectionPage(
             title: 'Explorando o Clima',
             cards: [
-              buildCard(context, 'Climas do Brasil', Icons.electric_bolt_sharp, BrazilianClimatesPage()),
-              buildCard(context, 'Tempo e Clima', Icons.cloud, WeatherClimatePage()),
+              buildCard(context, 'Climas do Brasil', Icons.electric_bolt_sharp, const  BrazilianClimatesPage()),
+              buildCard(context, 'Tempo e Clima', Icons.cloud, const WeatherClimatePage()),
               buildCard(context, 'Fatores Climáticos', Icons.beach_access_rounded, ClimaticFactorsPage()),
               buildCard(context, 'Fenômenos Climáticos', Icons.cyclone, ClimatePhenomenaPage()),
             ],
@@ -92,12 +92,11 @@ class _NewHomePageState extends State<NewHomePage> {
           HomeSectionPage(
             title: 'Sobre',
             cards: [
-              buildCard(context, 'Termos de Uso', Icons.newspaper_sharp, TermsPage()),
-              buildCard(context, 'Privacidade', Icons.account_balance_wallet_rounded, PrivacyPage()),
+              buildCard(context, 'Termos de Uso', Icons.newspaper_sharp, const TermsPage()),
+              buildCard(context, 'Privacidade', Icons.account_balance_wallet_rounded, const PrivacyPage()),
               buildCard(context, 'Sobre esse APP', Icons.account_balance_outlined, AboutPage()),
             ],
           ),
-          const ProfileScreen(profile: zachProfile),
         ][navBarIndex],
       ),
     );

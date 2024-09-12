@@ -2,6 +2,8 @@ import 'package:explorando_clima_app/pages/summary_exploring_clouds.dart';
 import 'package:flutter/material.dart';
 import 'package:explorando_clima_app/pages/exploring_type_clouds_page.dart';
 
+import 'component/cloud_types_list_component.dart';
+
 class ExploringCloudsPage extends StatelessWidget {
   const ExploringCloudsPage({super.key});
 

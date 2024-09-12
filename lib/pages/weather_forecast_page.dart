@@ -432,8 +432,8 @@ class _WeatherForecastState extends State<WeatherForecastPage> {
                                     ? CircularProgressIndicator()
                                     : Image.network(
                                         _imageUrl.isEmpty ? '' : _imageUrl,
-                                        height: 79,
-                                        width: 74,
+                                        height: 80,
+                                        width: 75,
                                       ),
                               ),
                             ],

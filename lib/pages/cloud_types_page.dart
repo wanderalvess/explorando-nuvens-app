@@ -59,28 +59,26 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
               padding: const EdgeInsets.all(8.0),
               child: LayoutBuilder(
                 builder: (context, constraints) {
-
-                  // Layout para telas maiores
-                  if (constraints.maxWidth <= 600) {
+                  if (constraints.maxWidth <= 669) {
                     return ListView.builder(
                       itemCount: imageUrls.length,
                       itemBuilder: (context, index) {
-                        return buildCloudCard(context, index);
+                        return buildCloudCard(context, index, 3);
                       },
                     );
-                  } else if (constraints.maxWidth >= 601 &&
-                      constraints.maxWidth <= 999) {
+                  } else if (constraints.maxWidth >= 670 &&
+                      constraints.maxWidth <= 1130) {
                     return GridView.builder(
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         crossAxisSpacing: 20,
                         mainAxisSpacing: 10,
-                        childAspectRatio: 2 / 2,
+                        childAspectRatio: BorderSide.strokeAlignOutside,
                       ),
                       itemCount: imageUrls.length,
                       itemBuilder: (context, index) {
-                        return buildCloudCard(context, index);
+                        return buildCloudCard(context, index, 1);
                       },
                     );
                   } else {
@@ -90,11 +88,11 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
                         crossAxisCount: 3,
                         crossAxisSpacing: 20,
                         mainAxisSpacing: 10,
-                        childAspectRatio: 2 / 2,
+                        childAspectRatio: BorderSide.strokeAlignOutside,
                       ),
                       itemCount: imageUrls.length,
                       itemBuilder: (context, index) {
-                        return buildCloudCard(context, index);
+                        return buildCloudCard(context, index, 3);
                       },
                     );
                   }
@@ -104,7 +102,7 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
     );
   }
 
-  Widget buildCloudCard(BuildContext context, int index) {
+  Widget buildCloudCard(BuildContext context, int index, int lines) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -155,6 +153,9 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
                   Text(
                     imageUrls[index].getDescriptionCloudType,
                     style: const TextStyle(fontSize: 16),
+                    maxLines: lines,
+                    overflow: TextOverflow.ellipsis, // Adiciona '...' ao final do texto caso ele ultrapasse o limite
+
                   ),
                 ],
               ),
