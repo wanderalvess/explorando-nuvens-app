@@ -63,7 +63,7 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
                     return ListView.builder(
                       itemCount: imageUrls.length,
                       itemBuilder: (context, index) {
-                        return buildCloudCard(context, index, 3);
+                        return buildCloudCard(context, index);
                       },
                     );
                   } else if (constraints.maxWidth >= 670 &&
@@ -78,21 +78,21 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
                       ),
                       itemCount: imageUrls.length,
                       itemBuilder: (context, index) {
-                        return buildCloudCard(context, index, 1);
+                        return buildCloudCard(context, index);
                       },
                     );
                   } else {
                     return GridView.builder(
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
+                        crossAxisCount: 4,
                         crossAxisSpacing: 20,
                         mainAxisSpacing: 10,
                         childAspectRatio: BorderSide.strokeAlignOutside,
                       ),
                       itemCount: imageUrls.length,
                       itemBuilder: (context, index) {
-                        return buildCloudCard(context, index, 3);
+                        return buildCloudCard(context, index);
                       },
                     );
                   }
@@ -102,7 +102,7 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
     );
   }
 
-  Widget buildCloudCard(BuildContext context, int index, int lines) {
+  Widget buildCloudCard(BuildContext context, int index) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -138,9 +138,9 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(15),
+              padding: const EdgeInsets.all(16),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     imageUrls[index].getTitleCloudType,
@@ -151,11 +151,13 @@ class _CloudTypesPageState extends State<CloudTypesPage> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    imageUrls[index].getDescriptionCloudType,
+                    imageUrls[index].getDescriptionCloudType.toString().substring(0,
+                            imageUrls[index].getDescriptionCloudType .toString().length > 150  ? 150
+                                : imageUrls[index].getDescriptionCloudType.toString().length)
+                           .replaceAll("\n\n", "\n")
+                           .replaceAll("  ", " "),
                     style: const TextStyle(fontSize: 16),
-                    maxLines: lines,
-                    overflow: TextOverflow.ellipsis, // Adiciona '...' ao final do texto caso ele ultrapasse o limite
-
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
